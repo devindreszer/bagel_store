@@ -60,4 +60,11 @@ group :test do
   gem 'shoulda-matchers'
 end
 
+# Devise ruby gem for user authentication
+# gem 'devise'
 
+# add foundation to file directly
+gem 'foundation-rails'
+
+# add foundation icons
+gem 'foundation-icons-sass-rails'
