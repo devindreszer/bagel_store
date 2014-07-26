@@ -1,3 +1,8 @@
+# As a guest user,
+# When I visit the personal menu page and click on an item,
+# I want to see a description of the item and what ingredients I can add or remove,
+# So I can customize my order
+
 require 'rails_helper'
 
 feature 'User views personal menu item details' do
@@ -10,6 +15,6 @@ feature 'User views personal menu item details' do
     expect(page).to have_css '.item-name'
     expect(page).to have_css '.item-price'
     expect(page).to have_css '.item-description'
-    expect(page).to have_css '.item-ingredients'
+    expect(page).to have_css 'form'
   end
 end
