@@ -19,7 +19,7 @@ Preliminary models
 
 ## ingredient
 
-* has_many :bases through :base_ingredients
+* has_many :bases through :base_ingredient
 * name
 * price
 
