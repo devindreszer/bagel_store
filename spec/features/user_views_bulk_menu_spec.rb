@@ -12,12 +12,15 @@ require 'rails_helper'
 
 feature 'User views bulk menu' do
   scenario 'by clicking on a link in the navbar' do
+    menu_items = create_list!(:menu_item, 3)
     visit root_path
 
     click_link 'Bulk Menu'
 
-    expect(page).to have_content 'Bulk Menu'
-    expect(page).to have_css '.bulk-menu'
-    expect(page).to have_css '.bulk-item'
+    menu_items.each do |menu_item|
+      within('.bulk-menu', text: 'Bulk Menu') do
+        expect(page).to have_css '.bulk-item', text: menu_item.name
+      end
+    end
   end
 end
