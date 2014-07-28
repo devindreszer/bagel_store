@@ -8,38 +8,46 @@ As a guest user,
 When I visit the homepage,
 I want to see the app features,
 So that I can understand the app's purpose
+  *(user_views_features_spec)
 
 As a guest user,
 When I visit the homepage,
 I want to be able to click link to see the bulk menu,
 So that I can view more details about the bulk food options offered
+  *(user_views_bulk_menu_spec)
 
 As a guest user,
 When I visit the homepage,
 I want to be able to click a link to see the personal menu,
 So that I can view more details about the personal food options offered
+  *(user_views_personal_menu_spec)
 
 ### Bulk Menu
 As a guest user,
 When I visit the bulk menu page,
 I want to be to see a list of bulk menu items,
 So that I know what I can order in bulk
+  *(user_views_bulk_menu_spec)
 
 As a guest user,
 When I visit the bulk menu page and click on an item,
 I want to see a description of the item and the quantities I can order,
 So I can decide what to order
+  *(user_views_bulk_item_details_spec)
 
 As a guest user,
 When I visit the bulk menu page and select an item or items,
 I can add the item(s) to a current order,
 So I can keep track of what I have selected
+  *(user_orders_bulk_item_spec)
+
 
 ### Personal Menu
 As a guest user,
 When I visit the personal menu page,
 I want to be to see a list of personal menu items,
 So that I know what I can order to eat
+  *(user_views_personal_menu_spec)
 
 As a guest user,
 When I visit the personal menu page,
@@ -50,6 +58,7 @@ As a guest user,
 When I visit the personal menu page and click on an item,
 I want to see a description of the item and what ingredients I can add or remove,
 So I can customize my order
+  *(user_views_personal_item_details_spec)
 
 As a guest user,
 When I visit the personal menu page and select an item or items,
