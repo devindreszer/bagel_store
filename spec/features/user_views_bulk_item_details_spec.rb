@@ -7,17 +7,19 @@ require 'rails_helper'
 
 feature 'User views bulk menu item details' do
   scenario 'by clicking on an item link on the bulk menu page' do
-    menu_item = create!(:menu_item)
+    menu_item = create(:menu_item, is_bulk: true)
     visit root_path
-    click_link 'Bulk Menu'
+    click_link 'Bulk Order'
 
-    click_link "[data-id='#{menu_item.id}']"
+    within("[data-id='#{menu_item.id}']") do
+      click_link menu_item.name
+    end
 
     expect(page).to have_css '.item-name', text: menu_item.name
     expect(page).to have_css '.item-price', text: menu_item.price
     expect(page).to have_css '.item-description', text: menu_item.description
     within('form') do
-      expect(page).to have_css 'selector', text: 'quantity'
+      expect(page).to have_css 'label', text: 'Quantity'
     end
   end
 end
