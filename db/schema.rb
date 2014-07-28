@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728152455) do
+ActiveRecord::Schema.define(version: 20140728152930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,5 +32,14 @@ ActiveRecord::Schema.define(version: 20140728152455) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "options", force: true do |t|
+    t.boolean "is_addon"
+    t.integer "menu_item_id"
+    t.integer "ingredient_id"
+  end
+
+  add_index "options", ["ingredient_id"], name: "index_options_on_ingredient_id", using: :btree
+  add_index "options", ["menu_item_id"], name: "index_options_on_menu_item_id", using: :btree
 
 end
