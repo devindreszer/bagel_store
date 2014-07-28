@@ -14,7 +14,15 @@
 
   <body>
 
+    <%= render partial: "layouts/navbar" %>
+
+    <% if request.path == "/" %>
+      <%= render partial: "layouts/banner" %>
+    <% end %>
+
     <%= yield %>
+
+    <%= render partial: "layouts/footer" %>
 
   </body>
 </html>
