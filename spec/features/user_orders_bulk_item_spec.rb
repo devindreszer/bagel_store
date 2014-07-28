@@ -18,6 +18,5 @@ feature 'User orders bulk menu item' do
     click_button "Add to Order"
 
     expect(page).to have_content menu_item.name
-    expect(page).to have_text("#{order_item.quantity} #{menu_item.name}s added to cart")
   end
 end

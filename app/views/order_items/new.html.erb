@@ -3,29 +3,20 @@
 <p class='item-description'><%= @menu_item.description %></p>
 <hr>
 
-<% if @menu_item.is_bulk == true %>
-  <%= form_for @order_item do |f| %>
-    <%= f.label :quantity %>
-    <%= f.select :quantity, [1, 2, 3, 4, 5] %>
+<%= form_for @order_item do |f| %>
+  Options:
+  <ul>
+    <%= f.fields_for :selections do |selections_form| %>
+      <li>
+        <%= selections_form.check_box :is_selected %>
+        <%= selections_form.label :is_selected, selections_form.object.option.ingredient.name.capitalize %>
+      </li>
+    <% end %>
+  </ul>
 
-    <%= f.submit %>
-  <% end %>
+  <%= f.label :quantity %>
+  <%= f.select :quantity, [1, 2, 3, 4, 5] %>
+  <%= f.hidden_field :menu_item_id  %>
 
-<% elsif @menu_item.is_bulk == false %>
-  <%= form_for @order_item do |f| %>
-    Options:
-    <ul>
-      <%= f.fields_for :selections do |selections_form| %>
-        <li>
-          <%= selections_form.check_box :is_selected %>
-          <%= selections_form.label selections_form.object.option.ingredient.name %>
-        </li>
-      <% end %>
-    </ul>
-
-    <%= f.label :quantity %>
-    <%= f.select :quantity, [1, 2, 3, 4, 5] %>
-
-    <%= f.submit %>
-  <% end %>
+  <%= f.submit "Add to Order" %>
 <% end %>
