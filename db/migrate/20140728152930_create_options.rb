@@ -4,6 +4,8 @@ class CreateOptions < ActiveRecord::Migration
       t.boolean :is_addon
       t.references :menu_item, index: true
       t.references :ingredient, index: true
+
+      t.timestamps
     end
   end
 end

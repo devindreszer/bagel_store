@@ -13,7 +13,9 @@ feature 'User views personal menu item details' do
     visit root_path
     click_link 'Personal Menu'
 
-    click_link "[data-id='#{menu_item.id}']"
+    within("[data-id='#{menu_item.id}']") do
+      click_link menu_item.name
+    end
 
     expect(page).to have_css '.item-name', text: menu_item.name
     expect(page).to have_css '.item-price', text: menu_item.price
