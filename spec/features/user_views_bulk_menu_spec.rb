@@ -12,7 +12,7 @@ require 'rails_helper'
 
 feature 'User views bulk menu' do
   scenario 'by clicking on a link in the navbar' do
-    menu_items = create_list!(:menu_item, 3)
+    menu_items = create_list(:menu_item, 3)
     visit root_path
 
     click_link 'Bulk Menu'
