@@ -11,9 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140728134101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "menu_items", force: true do |t|
+    t.text     "name",                                null: false
+    t.text     "image_url"
+    t.decimal  "price",       precision: 8, scale: 2
+    t.text     "description"
+    t.boolean  "is_bulk"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

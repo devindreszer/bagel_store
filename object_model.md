@@ -16,6 +16,7 @@ Preliminary models
 * name
 * price
 * description
+* is_bulk
 
 ## ingredient
 
