@@ -1,0 +1,10 @@
+<h2 class='item-name'><%= @menu_item.name %></h2>
+<p class='item-price'><%= @menu_item.price %></p>
+<p class='item-description'><%= @menu_item.description %></p>
+<hr>
+<%= form_for @order_item do |f| %>
+  <%= f.label :quantity %>
+  <%= f.select :quantity, [1, 2, 3, 4, 5] %>
+
+  <%= f.submit %>
+<% end %>

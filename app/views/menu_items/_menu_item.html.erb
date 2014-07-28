@@ -1,5 +1,5 @@
 <li class="menu-item" data-id='<%= menu_item.id %>'>
-  <%= link_to new_order_item_path do %>
+  <%= link_to new_order_item_path(menu_item_id: menu_item.id) do %>
     <%= render "shared/card", menu_item: menu_item %>
   <% end %>
 </li>
