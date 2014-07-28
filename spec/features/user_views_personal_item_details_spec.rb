@@ -7,8 +7,8 @@ require 'rails_helper'
 
 feature 'User views personal menu item details' do
   scenario 'by clicking on an item link on the personal menu page' do
-    menu_item = create!(:menu_item)
-    ingredients = create_list!(:ingredients, 5)
+    menu_item = create(:menu_item)
+    ingredients = create_list(:ingredient, 5)
     menu_item.ingredients << ingredients
     visit root_path
     click_link 'Personal Menu'
