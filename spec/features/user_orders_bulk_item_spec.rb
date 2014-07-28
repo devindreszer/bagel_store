@@ -7,18 +7,17 @@ require 'rails_helper'
 
 feature 'User orders bulk menu item' do
   scenario 'by completing out a form on the bulk menu item page' do
-    menu_item = create(:menu_item)
+    menu_item = create(:menu_item, is_bulk: true)
     visit root_path
-    click_link 'Bulk Menu'
-    click_link "[data-id='#{menu_item.id}']"
-    select '12', from: "quantity"
-    click_button "Add to Order"
-
-    within('form') do
-      expect(page).to have_field 'Quantity', with: '12'
-      expect(page).to have_link 'Add to Order'
+    click_link 'Bulk Order'
+    within("[data-id='#{menu_item.id}']") do
+      click_link menu_item.name
     end
 
+    select '2', from: "Quantity"
+    click_button "Add to Order"
+
+    expect(page).to have_content menu_item.name
     expect(page).to have_text("#{order_item.quantity} #{menu_item.name}s added to cart")
   end
 end
