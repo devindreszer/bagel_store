@@ -12,7 +12,7 @@ FactoryGirl.define do
     price { rand(1..5) }
   end
 
-  factory :menu_option do
+  factory :option do
     menu_item
     ingredient
   end

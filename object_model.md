@@ -26,7 +26,7 @@ Preliminary models
 
 ## options
 
-* belongs_to :base
+* belongs_to :menu_item
 * belongs_to :ingredient
 * has_many :order_items, through :selections
 * is_addon
@@ -43,6 +43,7 @@ Preliminary models
 * belongs_to :menu_item
 * belongs_to :order
 * price
+* quantity
 
 ## order
 
