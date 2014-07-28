@@ -12,14 +12,16 @@ require 'rails_helper'
 
 feature 'User views personal menu' do
   scenario 'by clicking on a link in the navbar' do
-    menu_items = create_list!(:menu_item, 3)
+    menu_items = create_list(:menu_item, 3)
     visit root_path
 
     click_link 'Personal Menu'
 
     menu_items.each do |menu_item|
-      within('.personal-menu', text: 'Personal Menu') do
-        expect(page).to have_css '.personal-item', text: menu_item.name
+      within('.menu') do
+        within("[data-id='#{menu_item.id}']") do
+          expect(page).to have_content menu_item.name
+        end
       end
     end
     expect(page).to have_link 'Build-Your-Own'

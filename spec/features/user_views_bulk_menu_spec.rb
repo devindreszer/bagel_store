@@ -21,8 +21,10 @@ feature 'User views bulk menu' do
     click_link 'Bulk Order'
 
     menu_items.each do |menu_item|
-      within('.bulk-order-menu') do
-        expect(page).to have_css '.bulk-item'
+      within('.menu') do
+        within("[data-id='#{menu_item.id}']") do
+          expect(page).to have_content menu_item.name
+        end
       end
     end
   end

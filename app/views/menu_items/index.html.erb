@@ -1,5 +1,15 @@
-<h2>Bulk Order Menu</h2>
+<% if @menu_items.present? && @menu_items.first.is_bulk == true %>
+  <h2>Bulk Order Menu</h2>
+<% elsif @menu_items.present? && @menu_items.first.is_bulk == false %>
+  <h2>Personal Menu</h2>
+<% end %>
+
 <hr>
-<ul class="large-block-grid-3 medium-block-grid-2 small-block-grid-1 bulk-order-menu">
+<ul class="large-block-grid-3 medium-block-grid-2 small-block-grid-1 menu">
   <%= render partial: "menu_item", collection: @menu_items %>
 </ul>
+
+<% if @menu_items.present? && @menu_items.first.is_bulk == false %>
+  <a href="#">Build-Your-Own</a>
+<% end %>
+

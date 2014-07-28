@@ -9,6 +9,11 @@
     <section class="top-bar-section">
       <ul class="right">
         <li>
+          <%= link_to menu_items_path(is_bulk: false), title: "personal-menu" do %>
+            Personal Menu
+          <% end %>
+        </li>
+        <li>
           <%= link_to menu_items_path(is_bulk: true), title: "bulk-order" do %>
             Bulk Order
           <% end %>
