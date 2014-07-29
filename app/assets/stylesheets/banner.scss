@@ -1,0 +1,19 @@
+#banner {
+  background-image: image-url('banner.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 75%;
+
+  #banner-text {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+    h1 {
+      color: white;
+    }
+  }
+}
