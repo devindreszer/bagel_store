@@ -61,7 +61,7 @@ group :test do
 end
 
 # Devise ruby gem for user authentication
-# gem 'devise'
+ gem 'devise'
 
 # add foundation to file directly
 gem 'foundation-rails'
