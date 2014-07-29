@@ -18,6 +18,11 @@
             Bulk Order
           <% end %>
         </li>
+        <li>
+          <%= link_to order_path(session[:order_id]), title: "current-order" do %>
+            Current Order
+          <% end %>
+        </li>
         <% if user_signed_in? %>
           <li class="has-dropdown">
             <%= link_to "#" do %>
