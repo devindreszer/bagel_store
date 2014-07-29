@@ -14,29 +14,40 @@
 
 <%= form_for @order_item do |f| %>
   <%= f.hidden_field :menu_item_id %>
-  <table>
-    <tbody>
-      <%= f.fields_for :selections do |selections_form| %>
-        <tr>
-          <% option = selections_form.object.option %>
-          <% ingredient = option.ingredient %>
-          <%= selections_form.hidden_field :option_id %>
+  <div class="row">
+    <div class="small-12 columns">
+      <ul class="medium-block-grid-2 small-block-grid-1">
+        <%= f.fields_for :selections do |selections_form| %>
+          <li>
+            <% option = selections_form.object.option %>
+            <% ingredient = option.ingredient %>
+            <%= selections_form.hidden_field :option_id %>
 
-          <td><%= selections_form.check_box :is_selected %></td>
-          <td><%= selections_form.label :is_selected, ingredient.name %></td>
+            <div class="row">
+              <div class="small-1 columns">
+              </div>
+              <div class="small-7 columns">
+                <%= selections_form.check_box :is_selected %>
+                <%= selections_form.label :is_selected, ingredient.name %>
+              </div>
+              <div class="small-3 columns text-right">
+                <% if option.is_addon && ingredient.price > 0 %>
+                  <%= number_to_currency(ingredient.price) %>
+                <% elsif option.is_addon && ingredient.price == 0 %>
+                  Free
+                <% else %>
+                  Included
+                <% end %>
+              </div>
+              <div class="small-1 columns">
+              </div>
+            </div>
 
-          <% if option.is_addon && ingredient.price > 0 %>
-            <td>Add <%= number_to_currency(ingredient.price) %></td>
-          <% elsif option.is_addon && ingredient.price == 0 %>
-            <td>Free</td>
-          <% else %>
-            <td>Included</td>
-          <% end %>
-
-        </tr>
-      <% end %>
-    <tbody>
-  </table>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 
   <div class="row">
     <div class="large-3 small-6 columns">
