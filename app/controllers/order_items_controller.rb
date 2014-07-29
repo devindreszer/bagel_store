@@ -22,6 +22,9 @@ class OrderItemsController < ApplicationController
 
   def create
     @order_item = OrderItem.new(order_item_params)
+    @order_item.user_id = current_or_guest_user.id
+
+    # calculate price
     @order_item.price = @order_item.menu_item.price
     @order_item.selections.each do |selection|
       if selection.is_selected && selection.option.is_addon
