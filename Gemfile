@@ -70,3 +70,6 @@ gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
 
 gem 'stripe', '~> 1.14.0'
+
+# Need groups: [:development, :test] ?
+gem 'dotenv-rails', '~> 0.11.1'
