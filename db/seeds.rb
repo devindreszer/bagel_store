@@ -194,6 +194,16 @@ variety_bagel = Ingredient.create!(
   price: 5.00
   )
 
+swap_plain_bagel = Ingredient.create!(
+  name: "Plain Bagel",
+  price: 0.00
+  )
+
+swap_variety_bagel = Ingredient.create!(
+  name: "Variety Bagel",
+  price: 1.00
+  )
+
 tomato = Ingredient.create!(
   name: "Tomato",
   price: 0.00
@@ -212,6 +222,31 @@ red_onions = Ingredient.create!(
 coleslaw = Ingredient.create!(
   name: "Coleslaw",
   price: 0.00
+  )
+
+sprouts = Ingredient.create!(
+  name: "Sprouts",
+  price: 0.30
+  )
+
+asiago = Ingredient.create!(
+  name: "Asiago Cheese",
+  price: 0.30
+  )
+
+provolone = Ingredient.create!(
+  name: "Provolone Cheese",
+  price: 0.30
+  )
+
+swiss = Ingredient.create!(
+  name: "Swiss Cheese",
+  price: 0.30
+  )
+
+cheddar = Ingredient.create!(
+  name: "Cheddar Cheese",
+  price: 0.30
   )
 
 mayo = Ingredient.create!(
@@ -254,44 +289,14 @@ salmon_spread = Ingredient.create!(
   price: 2.00
   )
 
-asiago = Ingredient.create!(
-  name: "Asiago Cheese",
-  price: 0.30
-  )
-
-provolone = Ingredient.create!(
-  name: "Provolone Cheese",
-  price: 0.30
-  )
-
-swiss = Ingredient.create!(
-  name: "Swiss Cheese",
-  price: 0.30
-  )
-
-cheddar = Ingredient.create!(
-  name: "Cheddar Cheese",
-  price: 0.30
-  )
-
 avocado = Ingredient.create!(
   name: "Avocado",
   price: 2.00
   )
 
-sprouts = Ingredient.create!(
-  name: "Sprouts",
-  price: 0.30
-  )
-
 turkey = Ingredient.create!(
   name: "Turkey",
   price: 2.00
-  )
-
-smoked_salmon = Ingredient.create!(
-  name: "Smoked Salmon",
-  price: 3.50
   )
 
 roast_beef = Ingredient.create!(
@@ -304,29 +309,35 @@ corned_beef = Ingredient.create!(
   price: 3.00
   )
 
+smoked_salmon = Ingredient.create!(
+  name: "Smoked Salmon",
+  price: 3.50
+  )
+
+
 # bagel options
 # regular options
-somerville_ingredients = [variety_bagel, avocado, tomato, cucumber, tofutti_cc]
+somerville_ingredients = [swap_variety_bagel, avocado, tomato, cucumber, tofutti_cc]
 somerville_ingredients.each do |ingredient|
   somerville.options.create!(ingredient_id: ingredient.id, is_addon: false)
 end
 
-north_end_ingredients = [variety_bagel, roast_beef, tomato, red_onions, asiago, provolone, mayo]
+north_end_ingredients = [swap_variety_bagel, roast_beef, tomato, red_onions, asiago, provolone, mayo]
 north_end_ingredients.each do |ingredient|
   north_end.options.create!(ingredient_id: ingredient.id, is_addon: false)
 end
 
-south_end_ingredients = [variety_bagel, corned_beef, coleslaw, swiss, tomato, spicy_mustard]
+south_end_ingredients = [swap_variety_bagel, corned_beef, coleslaw, swiss, tomato, spicy_mustard]
 south_end_ingredients.each do |ingredient|
   south_end.options.create!(ingredient_id: ingredient.id, is_addon: false)
 end
 
-hub_ingredients = [plain_bagel, turkey, garlic_mayo, tomato, cucumber, sprouts]
+hub_ingredients = [swap_plain_bagel, turkey, garlic_mayo, tomato, cucumber, sprouts]
 hub_ingredients.each do |ingredient|
   hub.options.create!(ingredient_id: ingredient.id, is_addon: false)
 end
 
-brookline_ingredients = [plain_bagel, plain_cc, tomato, red_onions, smoked_salmon]
+brookline_ingredients = [swap_plain_bagel, plain_cc, tomato, red_onions, smoked_salmon]
 brookline_ingredients.each do |ingredient|
   brookline.options.create!(ingredient_id: ingredient.id, is_addon: false)
 end
@@ -334,7 +345,7 @@ end
 # add on options
 sandwiches = [somerville, north_end, south_end, hub, brookline]
 sandwiches.each do |sandwich|
-  ingredients = [plain_bagel, variety_bagel, tomato, cucumber, red_onions, coleslaw, mayo, garlic_mayo, mustard, spicy_mustard, plain_cc, chive_cc, tofutti_cc, salmon_spread, asiago, provolone, swiss, cheddar, avocado, sprouts, turkey, smoked_salmon, roast_beef, corned_beef]
+  ingredients = [swap_plain_bagel, swap_variety_bagel, tomato, cucumber, red_onions, coleslaw, sprouts, asiago, provolone, swiss, cheddar, mayo, garlic_mayo, mustard, spicy_mustard, plain_cc, chive_cc, tofutti_cc, salmon_spread, asiago, avocado, turkey, roast_beef, corned_beef, smoked_salmon]
   ingredients.each do |ingredient|
     if !sandwich.options.find_by(ingredient_id: ingredient.id).present?
       sandwich.options.create!(ingredient_id: ingredient.id, is_addon: true)
