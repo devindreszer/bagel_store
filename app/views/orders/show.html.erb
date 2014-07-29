@@ -1,0 +1,6 @@
+<h2>Order</h2>
+<ul>
+  <% @order.order_items.each do |order_item| %>
+    <li><%= order_item.menu_item.name %></li>
+  <% end %>
+</ul>

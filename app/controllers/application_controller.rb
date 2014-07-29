@@ -55,4 +55,12 @@ class ApplicationController < ActionController::Base
     session[:guest_user_id] = u.id
     u
   end
+
+  def set_order
+    @order = Order.find(session[:order_id])
+  rescue ActiveRecord::RecordNotFound
+    @order = Order.create(user_id: current_or_guest_user.id)
+    session[:order_id] = @order.id
+  end
+
 end

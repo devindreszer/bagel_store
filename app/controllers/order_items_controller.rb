@@ -1,8 +1,5 @@
 class OrderItemsController < ApplicationController
-
-  def index
-    @order_items = OrderItem.all
-  end
+  before_action :set_order, only: [:create]
 
   def new
     @order_item = OrderItem.new
@@ -21,8 +18,9 @@ class OrderItemsController < ApplicationController
   end
 
   def create
-    @order_item = OrderItem.new(order_item_params)
+    @order_item = @order.order_items.new(order_item_params)
     @order_item.user_id = current_or_guest_user.id
+
 
     # calculate price
     @order_item.price = @order_item.menu_item.price
@@ -33,7 +31,7 @@ class OrderItemsController < ApplicationController
     end
 
     if @order_item.save!
-      redirect_to order_items_path
+      redirect_to @order_item.order
     end
   end
 
@@ -42,4 +40,5 @@ class OrderItemsController < ApplicationController
   def order_item_params
     params.require(:order_item).permit(:menu_item_id, :quantity, selections_attributes: [:option_id, :is_selected])
   end
+
 end

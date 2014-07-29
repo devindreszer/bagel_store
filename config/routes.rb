@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root "home#show"
 
   resources :menu_items, only: [:index]
-  resources :order_items, only: [:new, :create, :index]
+  resources :order_items, only: [:new, :create]
+  resources :orders, only: [:show]
 end
