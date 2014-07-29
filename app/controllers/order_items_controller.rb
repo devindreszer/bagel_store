@@ -24,7 +24,7 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.new(order_item_params)
     @order_item.price = @order_item.menu_item.price
     @order_item.selections.each do |selection|
-      if selection.option.is_addon
+      if selection.is_selected && selection.option.is_addon
         @order_item.price += selection.option.ingredient.price
       end
     end

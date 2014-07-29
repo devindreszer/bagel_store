@@ -13,7 +13,7 @@
           <% option = selections_form.object.option %>
           <% ingredient = option.ingredient %>
           <%= selections_form.hidden_field :option_id %>
-          <td><%= selections_form.label ingredient.name %></td>
+          <td><%= selections_form.label :is_selected, ingredient.name %></td>
 
           <% if option.is_addon %>
             <td>Add <%= ingredient.price %>
