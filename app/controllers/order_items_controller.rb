@@ -28,7 +28,7 @@ class OrderItemsController < ApplicationController
         @order_item.price += selection.option.ingredient.price
       end
     end
-    @order_item.order.price += @order_item.price
+    @order_item.order.price += (@order_item.price * @order_item.quantity)
     @order_item.order.save
     if @order_item.save!
       redirect_to @order_item.order
@@ -38,7 +38,7 @@ class OrderItemsController < ApplicationController
   def destroy
     @order_item = OrderItem.find(params[:id])
     order = @order_item.order
-    order.price -= @order_item.price
+    order.price -= (@order_item.price * @order_item.quantity)
     @order_item.destroy
     redirect_to order, alert: "You have removed the item."
   end
