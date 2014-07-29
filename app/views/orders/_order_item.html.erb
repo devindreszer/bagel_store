@@ -1,5 +1,6 @@
-<% @order_items.each do |order_item| %>
-  <h2><%= order_item.menu_item.name %></h2>
+<hr>
+<div>
+  <h3><%= order_item.menu_item.name %></h3>
   <p><%= order_item.price %></p>
   <ul>
     <% order_item.selections.each do |selection| %>
@@ -8,4 +9,4 @@
       <% end %>
     <% end %>
   </ul>
-<% end %>
+</div>
