@@ -21,7 +21,6 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.new(order_item_params)
     @order_item.user_id = current_or_guest_user.id
 
-
     # calculate price
     @order_item.price = @order_item.menu_item.price
     @order_item.selections.each do |selection|
@@ -29,7 +28,8 @@ class OrderItemsController < ApplicationController
         @order_item.price += selection.option.ingredient.price
       end
     end
-
+    @order_item.order.price += @order_item.price
+    @order_item.order.save
     if @order_item.save!
       redirect_to @order_item.order
     end
