@@ -68,3 +68,5 @@ gem 'foundation-rails'
 
 # add foundation icons
 gem 'foundation-icons-sass-rails'
+
+gem 'stripe', '~> 1.14.0'
