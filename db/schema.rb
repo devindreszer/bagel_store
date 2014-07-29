@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 20140728165656) do
 
   add_index "order_items", ["menu_item_id"], name: "index_order_items_on_menu_item_id", using: :btree
 
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
   create_table "selections", force: true do |t|
     t.integer  "order_item_id"
     t.integer  "option_id"

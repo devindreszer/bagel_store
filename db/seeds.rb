@@ -1,7 +1,7 @@
 MenuItem.delete_all
 Ingredient.delete_all
 
-sm_bagel_box_plain = menu_item.create!(
+sm_bagel_box_plain = MenuItem.create!(
   name: "Small Bagel Box - Plain Bagels (12)",
   price: 12.00,
   description: 'A small bagel box containing one dozen plain bagels',
@@ -9,7 +9,7 @@ sm_bagel_box_plain = menu_item.create!(
   is_bulk: true
   )
 
-sm_bagel_box_var = menu_item.create!(
+sm_bagel_box_var = MenuItem.create!(
   name: "Small Bagel Box - Variety Assortment (12)",
   price: 14.00,
   description: 'A small bagel box containing two of each: plain, sesame seed, poppy seed, onion, whole wheat, cinnamon raisin',
@@ -17,7 +17,7 @@ sm_bagel_box_var = menu_item.create!(
   is_bulk: true
   )
 
-sm_bagel_box_single_var = menu_item.create!(
+sm_bagel_box_single_var = MenuItem.create!(
   name: "Small Bagel Box - Single Variety (12)",
   price: 14.00,
   description: 'A small bagel box containing one dozen of any single variety bagel',
@@ -25,7 +25,7 @@ sm_bagel_box_single_var = menu_item.create!(
   is_bulk: true
   )
 
-lg_bagel_box_plain = menu_item.create!(
+lg_bagel_box_plain = MenuItem.create!(
   name: "Large Bagel Box - Plain Bagels (18)",
   price: 18.00,
   description: 'A large bagel box containing eighteen plain bagels',
@@ -33,7 +33,7 @@ lg_bagel_box_plain = menu_item.create!(
   is_bulk: true
   )
 
-lg_bagel_box_var = menu_item.create!(
+lg_bagel_box_var = MenuItem.create!(
   name: "Large Bagel Box - Variety Assortment (18)",
   price: 20.00,
   description: 'A large bagel box containing three of each: plain, sesame seed, poppy seed, onion, whole wheat, cinnamon raisin',
@@ -41,7 +41,7 @@ lg_bagel_box_var = menu_item.create!(
   is_bulk: true
   )
 
-lg_bagel_box_single_var = menu_item.create!(
+lg_bagel_box_single_var = MenuItem.create!(
   name: "Large Bagel Box - Single Variety (18)",
   price: 20.00,
   description: 'A large bagel box containing eighteen of any single variety bagel',
@@ -49,7 +49,7 @@ lg_bagel_box_single_var = menu_item.create!(
   is_bulk: true
   )
 
-plain_cc_bulk = menu_item.create!(
+plain_cc_bulk = MenuItem.create!(
   name: "Plain Cream Cheese",
   price: 2.50,
   description: 'Plain Cream Cheese',
@@ -57,7 +57,7 @@ plain_cc_bulk = menu_item.create!(
   is_bulk: true
   )
 
-chive_cc_bulk = menu_item.create!(
+chive_cc_bulk = MenuItem.create!(
   name: "Chive Cream Cheese",
   price: 3.00,
   description: 'Chive Cream Cheese',
@@ -65,7 +65,7 @@ chive_cc_bulk = menu_item.create!(
   is_bulk: true
   )
 
-tofutti_cc_bulk = menu_item.create!(
+tofutti_cc_bulk = MenuItem.create!(
   name: "Tofutti Cream Cheese",
   price: 4.00,
   description: 'Tofutti Cream Cheese',
@@ -73,7 +73,7 @@ tofutti_cc_bulk = menu_item.create!(
   is_bulk: true
   )
 
-salmon_spread_bulk = menu_item.create!(
+salmon_spread_bulk = MenuItem.create!(
   name: "Salmon Spread",
   price: 4.00,
   description: 'Salmon Spread',
@@ -81,7 +81,7 @@ salmon_spread_bulk = menu_item.create!(
   is_bulk: true
   )
 
-party_box = menu_item.create!(
+party_box = MenuItem.create!(
   name: "Party Box",
   price: 50.00,
   description: 'Twenty five bagels plus plain and chive cream cheese',
@@ -89,7 +89,7 @@ party_box = menu_item.create!(
   is_bulk: true
   )
 
-somerville = menu_item.create!(
+somerville = MenuItem.create!(
   name: "The Somerville",
   price: 7.00,
   description: 'Whole wheat bagel with avocado, tomato, cucumber and tofutti cream cheese',
@@ -97,7 +97,7 @@ somerville = menu_item.create!(
   is_bulk: false
   )
 
-north_end = menu_item.create!(
+north_end = MenuItem.create!(
   name: "The North End",
   price: 7.50,
   description: 'Onion bagel with roast beef, tomato, red onions, asiago cheese, provolone cheese and mayonnaise',
@@ -105,7 +105,7 @@ north_end = menu_item.create!(
   is_bulk: false
   )
 
-south_end = menu_item.create!(
+south_end = MenuItem.create!(
   name: "The South End",
   price: 7.50,
   description: 'Sesame bagel with corned beef, coleslaw, swiss cheese, tomato and spicy mustard',
@@ -113,7 +113,7 @@ south_end = menu_item.create!(
   is_bulk: false
   )
 
-hub = menu_item.create!(
+hub = MenuItem.create!(
   name: "The Hub",
   price: 7.00,
   description: 'Plain bagel with turkey, garlic mayonnaise, tomato, cucumber and sprouts',
@@ -121,7 +121,7 @@ hub = menu_item.create!(
   is_bulk: false
   )
 
-brookline = menu_item.create!(
+brookline = MenuItem.create!(
   name: "The Brookline",
   price: 8.50,
   description: 'Plain bagel with cream cheese, tomato, red onions and smoked salmon',
@@ -129,7 +129,7 @@ brookline = menu_item.create!(
   is_bulk: false
   )
 
-sm_soda = menu_item.create!(
+sm_soda = MenuItem.create!(
   name: "Small Fountain Soda",
   price: 2.75,
   description: 'Small Fountain Soda',
@@ -137,7 +137,7 @@ sm_soda = menu_item.create!(
   is_bulk: false
   )
 
-lg_soda = menu_item.create!(
+lg_soda = MenuItem.create!(
   name: "Large Fountain Soda",
   price: 3.50,
   description: 'Large Fountain Soda',
@@ -145,7 +145,7 @@ lg_soda = menu_item.create!(
   is_bulk: false
   )
 
-sm_coffee = menu_item.create!(
+sm_coffee = MenuItem.create!(
   name: "Small Hot Coffee",
   price: 2.00,
   description: 'Small Hot Coffee',
@@ -153,7 +153,7 @@ sm_coffee = menu_item.create!(
   is_bulk: false
   )
 
-lg_coffee = menu_item.create!(
+lg_coffee = MenuItem.create!(
   name: "Large Hot Coffee",
   price: 2.50,
   description: 'Large Hot Coffee',
@@ -161,7 +161,7 @@ lg_coffee = menu_item.create!(
   is_bulk: false
   )
 
-sm_latte = menu_item.create!(
+sm_latte = MenuItem.create!(
   name: "Small Latte",
   price: 3.50,
   description: 'Small Latte',
@@ -169,7 +169,7 @@ sm_latte = menu_item.create!(
   is_bulk: false
   )
 
-lg_latte = menu_item.create!(
+lg_latte = MenuItem.create!(
   name: "Large Latte",
   price: 4.25,
   description: 'Large Latte',
@@ -177,122 +177,122 @@ lg_latte = menu_item.create!(
   is_bulk: false
   )
 
-plain_bagel = ingredient.create!(
+plain_bagel = Ingredient.create!(
   name: "Plain Bagel",
   price: 4.00
   )
 
-variety_bagel = ingredient.create!(
+variety_bagel = Ingredient.create!(
   name: "Variety Bagel",
   price: 5.00
   )
 
-tomato = ingredient.create!(
+tomato = Ingredient.create!(
   name: "Tomato",
   price: 0.00
   )
 
-cucumber = ingredient.create!(
+cucumber = Ingredient.create!(
   name: "Cucumber",
   price: 0.00
   )
 
-red_onions = ingredient.create!(
+red_onions = Ingredient.create!(
   name: "Red Onions",
   price: 0.00
   )
 
-coleslaw = ingredient.create!(
+coleslaw = Ingredient.create!(
   name: "Coleslaw",
   price: 0.00
   )
 
-mayo = ingredient.create!(
+mayo = Ingredient.create!(
   name: "Mayonnaise",
   price: 0.50
   )
 
-garlic_mayo = ingredient.create!(
+garlic_mayo = Ingredient.create!(
   name: "Garlic Mayonnaise",
   price: 0.50
   )
 
-mustard = ingredient.create!(
+mustard = Ingredient.create!(
   name: "Mustard",
   price: 0.50
   )
 
-spicy_mustard = ingredient.create!(
+spicy_mustard = Ingredient.create!(
   name: "Spicy Mustard",
   price: 0.50
   )
 
-plain_cc = ingredient.create!(
+plain_cc = Ingredient.create!(
   name: "Plain Cream Cheese",
   price: 1.50
   )
 
-chive_cc = ingredient.create!(
+chive_cc = Ingredient.create!(
   name: "Chive Cream Cheese",
   price: 1.50
   )
 
-tofutti_cc = ingredient.create!(
+tofutti_cc = Ingredient.create!(
   name: "Tofutti Cream Cheese",
   price: 2.00
   )
 
-salmon_spread = ingredient.create!(
+salmon_spread = Ingredient.create!(
   name: "Salmon Spread",
   price: 2.00
   )
 
-asiago = ingredient.create!(
+asiago = Ingredient.create!(
   name: "Asiago Cheese",
   price: 0.30
   )
 
-provolone = ingredient.create!(
+provolone = Ingredient.create!(
   name: "Provolone Cheese",
   price: 0.30
   )
 
-swiss = ingredient.create!(
+swiss = Ingredient.create!(
   name: "Swiss Cheese",
   price: 0.30
   )
 
-cheddar = ingredient.create!(
+cheddar = Ingredient.create!(
   name: "Cheddar Cheese",
   price: 0.30
   )
 
-avocado = ingredient.create!(
+avocado = Ingredient.create!(
   name: "Avocado",
   price: 2.00
   )
 
-sprouts = ingredient.create!(
+sprouts = Ingredient.create!(
   name: "Sprouts",
   price: 0.30
   )
 
-turkey = ingredient.create!(
+turkey = Ingredient.create!(
   name: "Turkey",
   price: 2.00
   )
 
-smoked_salmon = ingredient.create!(
+smoked_salmon = Ingredient.create!(
   name: "Smoked Salmon",
   price: 3.50
   )
 
-roast_beef = ingredient.create!(
+roast_beef = Ingredient.create!(
   name: "Roast Beef",
   price: 2.00
   )
 
-corned_beef = ingredient.create!(
+corned_beef = Ingredient.create!(
   name: "Corned Beef",
   price: 3.00
   )
