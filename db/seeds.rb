@@ -330,7 +330,7 @@ sandwiches.each do |sandwich|
   ingredients = [plain_bagel, variety_bagel, tomato, cucumber, red_onions, coleslaw, mayo, garlic_mayo, mustard, spicy_mustard, plain_cc, chive_cc, tofutti_cc, salmon_spread, asiago, provolone, swiss, cheddar, avocado, sprouts, turkey, smoked_salmon, roast_beef, corned_beef]
   ingredients.each do |ingredient|
     if !sandwich.options.find_by(ingredient_id: ingredient.id).present?
-      north_end.options.create!(ingredient_id: ingredient.id, is_addon: true)
+      sandwich.options.create!(ingredient_id: ingredient.id, is_addon: true)
     end
   end
 end
