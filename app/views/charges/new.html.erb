@@ -1,4 +1,4 @@
-<%= form_for charges_path do %>
+<%= form_tag charges_path(order_id: params[:order_id]) do %>
   <article>
     <label class="amount">
       <span>Amount: $5.00</span>
