@@ -35,6 +35,13 @@ class OrderItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @order_item = OrderItem.find(params[:id])
+    order = @order_item.order
+    @order_item.destroy
+    redirect_to order, alert: "You have removed the item."
+  end
+
   private
 
   def order_item_params
