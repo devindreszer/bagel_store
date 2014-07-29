@@ -1,6 +1,5 @@
 class OrderItemsController < ApplicationController
 
-
   def index
     @order_items = OrderItem.all
   end
@@ -23,6 +22,13 @@ class OrderItemsController < ApplicationController
 
   def create
     @order_item = OrderItem.new(order_item_params)
+    @order_item.price = @order_item.menu_item.price
+    @order_item.selections.each do |selection|
+      if selection.option.is_addon
+        @order_item.price += selection.option.ingredient.price
+      end
+    end
+
     if @order_item.save!
       redirect_to order_items_path
     end
@@ -31,7 +37,6 @@ class OrderItemsController < ApplicationController
   private
 
   def order_item_params
-    params.require(:order_item).permit(:menu_item_id, :quantity)
+    params.require(:order_item).permit(:menu_item_id, :quantity, selections_attributes: [:option_id, :is_selected])
   end
-
 end

@@ -295,7 +295,6 @@ roast_beef = Ingredient.create!(
 corned_beef = Ingredient.create!(
   name: "Corned Beef",
   price: 3.00
-  )
 
 # bagel options
 # regular options
@@ -334,4 +333,3 @@ sandwiches.each do |sandwich|
     end
   end
 end
-

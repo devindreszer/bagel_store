@@ -8,7 +8,6 @@ feature 'User orders personal menu item' do
       option.is_addon = false
       option.save
     end
-
     last_option = menu_item.options.last
     last_option.is_addon = true
     last_option.save
@@ -19,15 +18,9 @@ feature 'User orders personal menu item' do
     end
 
     select '1', from: "Quantity"
-    save_and_open_page
     uncheck("#{menu_item.ingredients.first.name.capitalize}")
     check("#{menu_item.ingredients.last.name.capitalize}")
-
-
-
     click_button "Add to Order"
-
-
 
     expect(page).to have_content menu_item.name
   end
