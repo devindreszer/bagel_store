@@ -5,7 +5,7 @@ sm_bagel_box_plain = MenuItem.create!(
   name: "Small Bagel Box - Plain Bagels (12)",
   price: 12.00,
   description: 'A small bagel box containing one dozen plain bagels',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/plain-bagel.jpg/_jcr_content/renditions/plain-bagel.desktop.jpeg',
   is_bulk: true
   )
 
@@ -13,7 +13,7 @@ sm_bagel_box_var = MenuItem.create!(
   name: "Small Bagel Box - Variety Assortment (12)",
   price: 14.00,
   description: 'A small bagel box containing two of each: plain, sesame seed, poppy seed, onion, whole wheat, cinnamon raisin',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/everything-bagel.jpg/_jcr_content/renditions/everything-bagel.desktop.jpeg',
   is_bulk: true
   )
 
@@ -21,7 +21,7 @@ sm_bagel_box_single_var = MenuItem.create!(
   name: "Small Bagel Box - Single Variety (12)",
   price: 14.00,
   description: 'A small bagel box containing one dozen of any single variety bagel',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/everything-bagel.jpg/_jcr_content/renditions/everything-bagel.desktop.jpeg',
   is_bulk: true
   )
 
@@ -29,7 +29,7 @@ lg_bagel_box_plain = MenuItem.create!(
   name: "Large Bagel Box - Plain Bagels (18)",
   price: 18.00,
   description: 'A large bagel box containing eighteen plain bagels',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/plain-bagel.jpg/_jcr_content/renditions/plain-bagel.desktop.jpeg',
   is_bulk: true
   )
 
@@ -37,7 +37,7 @@ lg_bagel_box_var = MenuItem.create!(
   name: "Large Bagel Box - Variety Assortment (18)",
   price: 20.00,
   description: 'A large bagel box containing three of each: plain, sesame seed, poppy seed, onion, whole wheat, cinnamon raisin',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/everything-bagel.jpg/_jcr_content/renditions/everything-bagel.desktop.jpeg',
   is_bulk: true
   )
 
@@ -45,7 +45,7 @@ lg_bagel_box_single_var = MenuItem.create!(
   name: "Large Bagel Box - Single Variety (18)",
   price: 20.00,
   description: 'A large bagel box containing eighteen of any single variety bagel',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/everything-bagel.jpg/_jcr_content/renditions/everything-bagel.desktop.jpeg',
   is_bulk: true
   )
 
@@ -53,7 +53,7 @@ plain_cc_bulk = MenuItem.create!(
   name: "Plain Cream Cheese",
   price: 2.50,
   description: 'Plain Cream Cheese',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/plain-cream-cheese.jpg/_jcr_content/renditions/plain-cream-cheese.desktop.jpeg',
   is_bulk: true
   )
 
@@ -61,7 +61,7 @@ chive_cc_bulk = MenuItem.create!(
   name: "Chive Cream Cheese",
   price: 3.00,
   description: 'Chive Cream Cheese',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/reduced-fat-chive-and-onion-cream-cheese.jpg/_jcr_content/renditions/reduced-fat-chive-and-onion-cream-cheese.desktop.jpeg',
   is_bulk: true
   )
 
@@ -69,7 +69,7 @@ tofutti_cc_bulk = MenuItem.create!(
   name: "Tofutti Cream Cheese",
   price: 4.00,
   description: 'Tofutti Cream Cheese',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/reduced-fat-roasted-vegetable-cream-cheese.jpg/_jcr_content/renditions/reduced-fat-roasted-vegetable-cream-cheese.desktop.jpeg',
   is_bulk: true
   )
 
@@ -77,7 +77,7 @@ salmon_spread_bulk = MenuItem.create!(
   name: "Salmon Spread",
   price: 4.00,
   description: 'Salmon Spread',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/reduced-fat-honey-walnut-cream-cheese.jpg/_jcr_content/renditions/reduced-fat-honey-walnut-cream-cheese.desktop.jpeg',
   is_bulk: true
   )
 
@@ -85,7 +85,7 @@ party_box = MenuItem.create!(
   name: "Party Box",
   price: 50.00,
   description: 'Twenty five bagels plus plain and chive cream cheese',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/plain-bagel.jpg/_jcr_content/renditions/plain-bagel.desktop.jpeg',
   is_bulk: true
   )
 
@@ -101,7 +101,7 @@ north_end = MenuItem.create!(
   name: "The North End",
   price: 7.50,
   description: 'Onion bagel with roast beef, tomato, red onions, asiago cheese, provolone cheese and mayonnaise',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/steak-and-egg-on-everything-bagel.jpg/_jcr_content/renditions/steak-and-egg-on-everything-bagel.desktop.jpeg',
   is_bulk: false
   )
 
@@ -109,7 +109,7 @@ south_end = MenuItem.create!(
   name: "The South End",
   price: 7.50,
   description: 'Sesame bagel with corned beef, coleslaw, swiss cheese, tomato and spicy mustard',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/sesame-bagel.jpg/_jcr_content/renditions/sesame-bagel.desktop.jpeg',
   is_bulk: false
   )
 
@@ -117,7 +117,7 @@ hub = MenuItem.create!(
   name: "The Hub",
   price: 7.00,
   description: 'Plain bagel with turkey, garlic mayonnaise, tomato, cucumber and sprouts',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/sierra-turkey-sandwich-whole.jpg/_jcr_content/renditions/sierra-turkey-sandwich-whole.desktop.jpeg',
   is_bulk: false
   )
 
@@ -133,7 +133,7 @@ sm_soda = MenuItem.create!(
   name: "Small Fountain Soda",
   price: 2.75,
   description: 'Small Fountain Soda',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/content/dam/panerabread/menu/details/pepsi-large.jpg',
   is_bulk: false
   )
 
@@ -141,7 +141,7 @@ lg_soda = MenuItem.create!(
   name: "Large Fountain Soda",
   price: 3.50,
   description: 'Large Fountain Soda',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/content/dam/panerabread/menu/details/pepsi-large.jpg',
   is_bulk: false
   )
 
@@ -149,7 +149,7 @@ sm_coffee = MenuItem.create!(
   name: "Small Hot Coffee",
   price: 2.00,
   description: 'Small Hot Coffee',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/hot-coffee.jpg/_jcr_content/renditions/hot-coffee.desktop.jpeg',
   is_bulk: false
   )
 
@@ -157,7 +157,7 @@ lg_coffee = MenuItem.create!(
   name: "Large Hot Coffee",
   price: 2.50,
   description: 'Large Hot Coffee',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/hot-coffee.jpg/_jcr_content/renditions/hot-coffee.desktop.jpeg',
   is_bulk: false
   )
 
@@ -165,7 +165,7 @@ sm_latte = MenuItem.create!(
   name: "Small Latte",
   price: 3.50,
   description: 'Small Latte',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/caffe-latte-large.jpg/_jcr_content/renditions/caffe-latte-large.desktop.jpeg',
   is_bulk: false
   )
 
@@ -173,7 +173,7 @@ lg_latte = MenuItem.create!(
   name: "Large Latte",
   price: 4.25,
   description: 'Large Latte',
-  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/caffe-latte-large.jpg/_jcr_content/renditions/caffe-latte-large.desktop.jpeg',
   is_bulk: false
   )
 
