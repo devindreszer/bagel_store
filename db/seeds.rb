@@ -8,6 +8,14 @@ devin = User.create!(
   password: 'password'
   )
 
+custom_order = MenuItem.create!(
+  name: "Custom Bagel Sandwich",
+  price: 4.00,
+  description: 'Build your own custom bagel sandwich',
+  image_url: 'https://www.panerabread.com/panerabread/menu/details/plain-bagel.jpg/_jcr_content/renditions/plain-bagel.desktop.jpeg',
+  is_bulk: false
+  )
+
 sm_bagel_box_plain = MenuItem.create!(
   name: "Small Bagel Box - Plain Bagels (12)",
   price: 12.00,
@@ -317,6 +325,11 @@ smoked_salmon = Ingredient.create!(
 
 # bagel options
 # regular options
+custom_order_ingredients = [swap_plain_bagel]
+custom_order_ingredients.each do |ingredient|
+  custom_order.options.create!(ingredient_id: ingredient.id, is_addon: false)
+end
+
 somerville_ingredients = [swap_variety_bagel, avocado, tomato, cucumber, tofutti_cc]
 somerville_ingredients.each do |ingredient|
   somerville.options.create!(ingredient_id: ingredient.id, is_addon: false)
@@ -343,7 +356,7 @@ brookline_ingredients.each do |ingredient|
 end
 
 # add on options
-sandwiches = [somerville, north_end, south_end, hub, brookline]
+sandwiches = [custom_order, somerville, north_end, south_end, hub, brookline]
 sandwiches.each do |sandwich|
   ingredients = [swap_plain_bagel, swap_variety_bagel, tomato, cucumber, red_onions, coleslaw, sprouts, asiago, provolone, swiss, cheddar, mayo, garlic_mayo, mustard, spicy_mustard, plain_cc, chive_cc, tofutti_cc, salmon_spread, asiago, avocado, turkey, roast_beef, corned_beef, smoked_salmon]
   ingredients.each do |ingredient|
