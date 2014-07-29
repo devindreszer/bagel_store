@@ -9,7 +9,8 @@
 
     <div class="small-8 columns">
       <h3><%= order_item.menu_item.name %></h3>
-      <p><%= number_to_currency(order_item.price) %></p>
+      <p>Quantity: <%= order_item.quantity %></p>
+      <p><%= number_to_currency(order_item.price * order_item.quantity) %></p>
 
       <% selections = [] %>
       <% order_item.selections.each do |selection| %>
