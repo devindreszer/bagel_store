@@ -1,5 +1,6 @@
 MenuItem.delete_all
 Ingredient.delete_all
+User.delete_all
 
 devin = User.create!(
   username: 'devin',
