@@ -1,17 +1,337 @@
 MenuItem.delete_all
 Ingredient.delete_all
 
-menu_item = MenuItem.create!(
-  name: "Bagel",
+sm_bagel_box_plain = menu_item.create!(
+  name: "Small Bagel Box - Plain Bagels (12)",
+  price: 12.00,
+  description: 'A small bagel box containing one dozen plain bagels',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: true
+  )
+
+sm_bagel_box_var = menu_item.create!(
+  name: "Small Bagel Box - Variety Assortment (12)",
+  price: 14.00,
+  description: 'A small bagel box containing two of each: plain, sesame seed, poppy seed, onion, whole wheat, cinnamon raisin',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: true
+  )
+
+sm_bagel_box_single_var = menu_item.create!(
+  name: "Small Bagel Box - Single Variety (12)",
+  price: 14.00,
+  description: 'A small bagel box containing one dozen of any single variety bagel',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: true
+  )
+
+lg_bagel_box_plain = menu_item.create!(
+  name: "Large Bagel Box - Plain Bagels (18)",
+  price: 18.00,
+  description: 'A large bagel box containing eighteen plain bagels',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: true
+  )
+
+lg_bagel_box_var = menu_item.create!(
+  name: "Large Bagel Box - Variety Assortment (18)",
+  price: 20.00,
+  description: 'A large bagel box containing three of each: plain, sesame seed, poppy seed, onion, whole wheat, cinnamon raisin',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: true
+  )
+
+lg_bagel_box_single_var = menu_item.create!(
+  name: "Large Bagel Box - Single Variety (18)",
+  price: 20.00,
+  description: 'A large bagel box containing eighteen of any single variety bagel',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: true
+  )
+
+plain_cc_bulk = menu_item.create!(
+  name: "Plain Cream Cheese",
   price: 2.50,
-  description: 'bagel is good',
+  description: 'Plain Cream Cheese',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: true
+  )
+
+chive_cc_bulk = menu_item.create!(
+  name: "Chive Cream Cheese",
+  price: 3.00,
+  description: 'Chive Cream Cheese',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: true
+  )
+
+tofutti_cc_bulk = menu_item.create!(
+  name: "Tofutti Cream Cheese",
+  price: 4.00,
+  description: 'Tofutti Cream Cheese',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: true
+  )
+
+salmon_spread_bulk = menu_item.create!(
+  name: "Salmon Spread",
+  price: 4.00,
+  description: 'Salmon Spread',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: true
+  )
+
+party_box = menu_item.create!(
+  name: "Party Box",
+  price: 50.00,
+  description: 'Twenty five bagels plus plain and chive cream cheese',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: true
+  )
+
+somerville = menu_item.create!(
+  name: "The Somerville",
+  price: 7.00,
+  description: 'Whole wheat bagel with avocado, tomato, cucumber and tofutti cream cheese',
   image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
   is_bulk: false
   )
 
-ingredient1 = Ingredient.create!(
-  name: "cream cheese",
-  price: 1.00,
+north_end = menu_item.create!(
+  name: "The North End",
+  price: 7.50,
+  description: 'Onion bagel with roast beef, tomato, red onions, asiago cheese, provolone cheese and mayonnaise',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: false
   )
 
-menu_item.ingredients << ingredient1
+south_end = menu_item.create!(
+  name: "The South End",
+  price: 7.50,
+  description: 'Sesame bagel with corned beef, coleslaw, swiss cheese, tomato and spicy mustard',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: false
+  )
+
+hub = menu_item.create!(
+  name: "The Hub",
+  price: 7.00,
+  description: 'Plain bagel with turkey, garlic mayonnaise, tomato, cucumber and sprouts',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: false
+  )
+
+brookline = menu_item.create!(
+  name: "The Brookline",
+  price: 8.50,
+  description: 'Plain bagel with cream cheese, tomato, red onions and smoked salmon',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: false
+  )
+
+sm_soda = menu_item.create!(
+  name: "Small Fountain Soda",
+  price: 2.75,
+  description: 'Small Fountain Soda',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: false
+  )
+
+lg_soda = menu_item.create!(
+  name: "Large Fountain Soda",
+  price: 3.50,
+  description: 'Large Fountain Soda',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: false
+  )
+
+sm_coffee = menu_item.create!(
+  name: "Small Hot Coffee",
+  price: 2.00,
+  description: 'Small Hot Coffee',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: false
+  )
+
+lg_coffee = menu_item.create!(
+  name: "Large Hot Coffee",
+  price: 2.50,
+  description: 'Large Hot Coffee',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: false
+  )
+
+sm_latte = menu_item.create!(
+  name: "Small Latte",
+  price: 3.50,
+  description: 'Small Latte',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: false
+  )
+
+lg_latte = menu_item.create!(
+  name: "Large Latte",
+  price: 4.25,
+  description: 'Large Latte',
+  image_url: "https://www.panerabread.com/panerabread/menu/details/egg-white-avocado-and-spinach-breakfast-power-sandwich.jpg/_jcr_content/renditions/egg-white-avocado-and-spinach-breakfast-power-sandwich.desktop.jpeg",
+  is_bulk: false
+  )
+
+plain_bagel = ingredient.create!(
+  name: "Plain Bagel",
+  price: 4.00
+  )
+
+variety_bagel = ingredient.create!(
+  name: "Variety Bagel",
+  price: 5.00
+  )
+
+tomato = ingredient.create!(
+  name: "Tomato",
+  price: 0.00
+  )
+
+cucumber = ingredient.create!(
+  name: "Cucumber",
+  price: 0.00
+  )
+
+red_onions = ingredient.create!(
+  name: "Red Onions",
+  price: 0.00
+  )
+
+coleslaw = ingredient.create!(
+  name: "Coleslaw",
+  price: 0.00
+  )
+
+mayo = ingredient.create!(
+  name: "Mayonnaise",
+  price: 0.50
+  )
+
+garlic_mayo = ingredient.create!(
+  name: "Garlic Mayonnaise",
+  price: 0.50
+  )
+
+mustard = ingredient.create!(
+  name: "Mustard",
+  price: 0.50
+  )
+
+spicy_mustard = ingredient.create!(
+  name: "Spicy Mustard",
+  price: 0.50
+  )
+
+plain_cc = ingredient.create!(
+  name: "Plain Cream Cheese",
+  price: 1.50
+  )
+
+chive_cc = ingredient.create!(
+  name: "Chive Cream Cheese",
+  price: 1.50
+  )
+
+tofutti_cc = ingredient.create!(
+  name: "Tofutti Cream Cheese",
+  price: 2.00
+  )
+
+salmon_spread = ingredient.create!(
+  name: "Salmon Spread",
+  price: 2.00
+  )
+
+asiago = ingredient.create!(
+  name: "Asiago Cheese",
+  price: 0.30
+  )
+
+provolone = ingredient.create!(
+  name: "Provolone Cheese",
+  price: 0.30
+  )
+
+swiss = ingredient.create!(
+  name: "Swiss Cheese",
+  price: 0.30
+  )
+
+cheddar = ingredient.create!(
+  name: "Cheddar Cheese",
+  price: 0.30
+  )
+
+avocado = ingredient.create!(
+  name: "Avocado",
+  price: 2.00
+  )
+
+sprouts = ingredient.create!(
+  name: "Sprouts",
+  price: 0.30
+  )
+
+turkey = ingredient.create!(
+  name: "Turkey",
+  price: 2.00
+  )
+
+smoked_salmon = ingredient.create!(
+  name: "Smoked Salmon",
+  price: 3.50
+  )
+
+roast_beef = ingredient.create!(
+  name: "Roast Beef",
+  price: 2.00
+  )
+
+corned_beef = ingredient.create!(
+  name: "Corned Beef",
+  price: 3.00
+  )
+
+# bagel options
+# regular options
+somerville_ingredients = [variety_bagel, avocado, tomato, cucumber, tofutti_cc]
+somerville_ingredients.each do |ingredient|
+  somerville.options.create!(ingredient_id: ingredient.id, is_addon: false)
+end
+
+north_end_ingredients = [variety_bagel, roast_beef, tomato, red_onions, asiago, provolone, mayo]
+north_end_ingredients.each do |ingredient|
+  north_end.options.create!(ingredient_id: ingredient.id, is_addon: false)
+end
+
+south_end_ingredients = [variety_bagel, corned_beef, coleslaw, swiss, tomato, spicy_mustard]
+south_end_ingredients.each do |ingredient|
+  south_end.options.create!(ingredient_id: ingredient.id, is_addon: false)
+end
+
+hub_ingredients = [plain_bagel, turkey, garlic_mayo, tomato, cucumber, sprouts]
+hub_ingredients.each do |ingredient|
+  hub.options.create!(ingredient_id: ingredient.id, is_addon: false)
+end
+
+brookline_ingredients = [plain_bagel, plain_cc, tomato, red_onions, smoked_salmon]
+brookline_ingredients.each do |ingredient|
+  brookline.options.create!(ingredient_id: ingredient.id, is_addon: false)
+end
+
+# add on options
+sandwiches = [somerville, north_end, south_end, hub, brookline]
+sandwiches.each do |sandwich|
+  ingredients = [plain_bagel, variety_bagel, tomato, cucumber, red_onions, coleslaw, mayo, garlic_mayo, mustard, spicy_mustard, plain_cc, chive_cc, tofutti_cc, salmon_spread, asiago, provolone, swiss, cheddar, avocado, sprouts, turkey, smoked_salmon, roast_beef, corned_beef]
+  ingredients.each do |ingredient|
+    if !sandwich.options.find_by(ingredient_id: ingredient.id).present?
+      north_end.options.create!(ingredient_id: ingredient.id, is_addon: true)
+    end
+  end
+end
+
