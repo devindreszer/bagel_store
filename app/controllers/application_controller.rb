@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_order
 
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
@@ -55,4 +56,12 @@ class ApplicationController < ActionController::Base
     session[:guest_user_id] = u.id
     u
   end
+
+  def set_order
+    @order = Order.find(session[:order_id])
+  rescue ActiveRecord::RecordNotFound
+    @order = Order.create(user_id: current_or_guest_user.id)
+    session[:order_id] = @order.id
+  end
+
 end

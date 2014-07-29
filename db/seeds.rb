@@ -1,6 +1,12 @@
 MenuItem.delete_all
 Ingredient.delete_all
 
+devin = User.create!(
+  username: 'devin',
+  email: 'devin@example.com',
+  password: 'password'
+  )
+
 sm_bagel_box_plain = MenuItem.create!(
   name: "Small Bagel Box - Plain Bagels (12)",
   price: 12.00,
