@@ -3,29 +3,32 @@
 <p class='item-description'><%= @menu_item.description %></p>
 <hr>
 
-<% if @menu_item.is_bulk == true %>
-  <%= form_for @order_item do |f| %>
-    <%= f.label :quantity %>
-    <%= f.select :quantity, [1, 2, 3, 4, 5] %>
-
-    <%= f.submit %>
-  <% end %>
-
-<% elsif @menu_item.is_bulk == false %>
-  <%= form_for @order_item do |f| %>
-    Options:
-    <ul>
+<%= form_for @order_item do |f| %>
+  <%= f.hidden_field :menu_item_id %>
+  Options:
+  <table>
+    <tbody>
       <%= f.fields_for :selections do |selections_form| %>
-        <li>
-          <%= selections_form.check_box :is_selected %>
-          <%= selections_form.label selections_form.object.option.ingredient.name %>
-        </li>
+        <tr>
+          <% option = selections_form.object.option %>
+          <% ingredient = option.ingredient %>
+          <%= selections_form.hidden_field :option_id %>
+          <td><%= selections_form.label ingredient.name %></td>
+
+          <% if option.is_addon %>
+            <td>Add <%= ingredient.price %>
+          <% else %>
+            <td></td>
+          <% end %>
+
+          <td><%= selections_form.check_box :is_selected %></td>
+        </tr>
       <% end %>
-    </ul>
+    <tbody>
+  </table>
 
-    <%= f.label :quantity %>
-    <%= f.select :quantity, [1, 2, 3, 4, 5] %>
+  <%= f.label :quantity %>
+  <%= f.select :quantity, [1, 2, 3, 4, 5] %>
 
-    <%= f.submit %>
-  <% end %>
+  <%= f.submit "Add to Order" %>
 <% end %>
