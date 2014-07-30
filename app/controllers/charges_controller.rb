@@ -1,5 +1,7 @@
 class ChargesController < ApplicationController
 
+  before_action :authenticate_user!
+
   def new
     @order = Order.find(params[:order_id])
     @amount = (@order.price*100).to_i
