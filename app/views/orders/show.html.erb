@@ -5,7 +5,18 @@
 
   <h5>Order subtotal: <%= number_to_currency(@order.subtotal) %></h5>
 
-  <p><%= link_to "Would you like delivery?", new_neighborhood_path(order_id: @order.id) %></p>
+  <div>
+  <% unless @order.neighborhood_id.present? %>
+    <p> For delivery, please select from one of our available locations: </p>
+    <%= form_for @order do |f| %>
+      <%= f.select(:neighborhood_id, options_from_collection_for_select(@neighborhoods, :id, :neighborhood_name), include_blank: true, prompt: "Select a delivery neighborhood") %>
+        <%= f.submit "Choose delivery location", class: "small button radius" %>
+      <% end %>
+  <% else %>
+    <p> Delivery location selected: <%= @order.neighborhood.neighborhood_name %></p>
+  <% end %>
+  </div>
+
   <%= link_to "Checkout", new_charge_path(order_id: @order.id), class: "small button radius" %>
 <% else %>
   <hr>
