@@ -1,0 +1,2 @@
+<p> For delivery, please select from one of our available locations: </p>
+<%= select_tag(:delivery_charge, options_for_select(Neighborhood.all.map { |n| [n.neighborhood_name, n.id, n.delivery_charge] }), include_blank: true, prompt: "Select a delivery neighborhood") %>

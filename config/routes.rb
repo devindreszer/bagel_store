@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :order_items, only: [:new, :create, :destroy]
   resources :orders, only: [:show, :index]
   resources :charges, only: [:new, :create]
+  resources :neighborhoods, only: [:new, :create]
+
 end
