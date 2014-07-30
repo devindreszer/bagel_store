@@ -2,6 +2,8 @@
 <% unless @order.is_purchased %>
   <%= render partial: "order_item", collection: @order.order_items %>
   <hr>
+
+  <h5>Order subtotal: <%= number_to_currency(@order.subtotal) %></h5>
   <%= link_to "Checkout", new_charge_path(order_id: @order.id), class: "small button radius" %>
 <% else %>
   <hr>
