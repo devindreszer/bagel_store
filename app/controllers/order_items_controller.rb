@@ -35,6 +35,20 @@ class OrderItemsController < ApplicationController
     end
   end
 
+  def edit
+    @order_item = OrderItem.find(params[:id])
+    @menu_item = MenuItem.find(@order_item.menu_item_id)
+  end
+
+  def update
+    @order_item = OrderItem.find(params[:id])
+    order = @order_item.order
+    @order_item.selections = []
+    if @order_item.update!(order_item_params)
+      redirect_to order, alert: "Order updated."
+    end
+  end
+
   def destroy
     @order_item = OrderItem.find(params[:id])
     order = @order_item.order

@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div class="small-8 columns">
+    <div class="small-7 columns">
       <h3><%= order_item.menu_item.name %></h3>
       <p>Quantity: <%= order_item.quantity %></p>
       <p><%= number_to_currency(order_item.price * order_item.quantity) %></p>
@@ -22,6 +22,11 @@
     </div>
 
     <div class="small-1 columns">
+      <%= link_to edit_order_item_path(order_item.id), title: "edit-order-item" do %>
+        <i class="fi-pencil edit-order-item"></i>
+      <% end %>
+    </div>
+     <div class="small-1 columns">
       <%= link_to order_item_path(order_item.id), method: :delete, title: "delete-order-item" do %>
         <i class="fi-x delete-order-item"></i>
       <% end %>
