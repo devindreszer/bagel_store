@@ -1,6 +1,19 @@
 include ActionView::Helpers::NumberHelper
 class OrderItemSerializer < ActiveModel::Serializer
-  attributes :id, :menu_item_id, :menu_item_name, :menu_item_image_url, :menu_item_price, :menu_item_description, :selections, :quantity, :price
+  attributes :id,
+    :is_bulk,
+    :menu_item_id,
+    :menu_item_name,
+    :menu_item_image_url,
+    :menu_item_price,
+    :menu_item_description,
+    :selections,
+    :quantity,
+    :price
+
+  def is_bulk
+    "#{object.menu_item.is_bulk}"
+  end
 
   def menu_item_id
     "#{object.menu_item.id}"

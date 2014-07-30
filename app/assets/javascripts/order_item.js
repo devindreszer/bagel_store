@@ -1,11 +1,10 @@
 var OrderItem = {
   initialize: function() {
-    $('.menu-item').click(this.getForm.bind(this));
+    $('.menu-item').find('a').click(this.getForm.bind(this));
   },
 
   getForm: function(event) {
-    debugger;
-    var dataID = $(event.currentTarget).data('id');
+    var dataID = $(event.currentTarget).closest('.menu-item').data('id');
 
     event.preventDefault();
 
