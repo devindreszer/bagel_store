@@ -194,163 +194,202 @@ lg_latte = MenuItem.create!(
 
 plain_bagel = Ingredient.create!(
   name: "Plain Bagel",
-  price: 4.00
+  price: 0.00,
+  category: 'bagel'
   )
 
-variety_bagel = Ingredient.create!(
-  name: "Variety Bagel",
-  price: 5.00
+sesame_bagel = Ingredient.create!(
+  name: "Sesame Seed Bagel",
+  price: 1.00,
+  category: 'variety bagel'
   )
 
-swap_plain_bagel = Ingredient.create!(
-  name: "Plain Bagel",
-  price: 0.00
+poppy_bagel = Ingredient.create!(
+  name: "Poppy Seed Bagel",
+  price: 1.00,
+  category: 'variety bagel'
   )
 
-swap_variety_bagel = Ingredient.create!(
-  name: "Variety Bagel",
-  price: 1.00
+onion_bagel = Ingredient.create!(
+  name: "Onion Bagel",
+  price: 1.00,
+  category: 'variety bagel'
+  )
+
+wheat_bagel = Ingredient.create!(
+  name: "Whole Wheat Bagel",
+  price: 1.00,
+  category: 'variety bagel'
+  )
+
+raisin_bagel = Ingredient.create!(
+  name: "Cinnamon Raisin Bagel",
+  price: 1.00,
+  category: 'variety bagel'
   )
 
 tomato = Ingredient.create!(
   name: "Tomato",
-  price: 0.00
+  price: 0.00,
+  category: 'topping'
   )
 
 cucumber = Ingredient.create!(
   name: "Cucumber",
-  price: 0.00
+  price: 0.00,
+  category: 'topping'
   )
 
 red_onions = Ingredient.create!(
   name: "Red Onions",
-  price: 0.00
+  price: 0.00,
+  category: 'topping'
   )
 
 coleslaw = Ingredient.create!(
   name: "Coleslaw",
-  price: 0.00
-  )
-
-sprouts = Ingredient.create!(
-  name: "Sprouts",
-  price: 0.30
-  )
-
-asiago = Ingredient.create!(
-  name: "Asiago Cheese",
-  price: 0.30
-  )
-
-provolone = Ingredient.create!(
-  name: "Provolone Cheese",
-  price: 0.30
-  )
-
-swiss = Ingredient.create!(
-  name: "Swiss Cheese",
-  price: 0.30
-  )
-
-cheddar = Ingredient.create!(
-  name: "Cheddar Cheese",
-  price: 0.30
-  )
-
-mayo = Ingredient.create!(
-  name: "Mayonnaise",
-  price: 0.50
-  )
-
-garlic_mayo = Ingredient.create!(
-  name: "Garlic Mayonnaise",
-  price: 0.50
-  )
-
-mustard = Ingredient.create!(
-  name: "Mustard",
-  price: 0.50
-  )
-
-spicy_mustard = Ingredient.create!(
-  name: "Spicy Mustard",
-  price: 0.50
+  price: 0.00,
+  category: 'topping'
   )
 
 plain_cc = Ingredient.create!(
   name: "Plain Cream Cheese",
-  price: 1.50
+  price: 1.50,
+  category: 'basic cc'
   )
 
 chive_cc = Ingredient.create!(
   name: "Chive Cream Cheese",
-  price: 1.50
+  price: 1.50,
+  category: 'basic cc'
   )
 
 tofutti_cc = Ingredient.create!(
   name: "Tofutti Cream Cheese",
-  price: 2.00
+  price: 2.00,
+  category: 'deluxe cc'
   )
 
 salmon_spread = Ingredient.create!(
   name: "Salmon Spread",
-  price: 2.00
+  price: 2.00,
+  category: 'deluxe cc'
+  )
+
+sprouts = Ingredient.create!(
+  name: "Sprouts",
+  price: 0.30,
+  category: 'topping'
+  )
+
+asiago = Ingredient.create!(
+  name: "Asiago Cheese",
+  price: 0.30,
+  category: 'cheese'
+  )
+
+provolone = Ingredient.create!(
+  name: "Provolone Cheese",
+  price: 0.30,
+  category: 'cheese'
+  )
+
+swiss = Ingredient.create!(
+  name: "Swiss Cheese",
+  price: 0.30,
+  category: 'cheese'
+  )
+
+cheddar = Ingredient.create!(
+  name: "Cheddar Cheese",
+  price: 0.30,
+  category: 'cheese'
+  )
+
+mayo = Ingredient.create!(
+  name: "Mayonnaise",
+  price: 0.50,
+  category: 'topping'
+  )
+
+garlic_mayo = Ingredient.create!(
+  name: "Garlic Mayonnaise",
+  price: 0.50,
+  category: 'topping'
+  )
+
+mustard = Ingredient.create!(
+  name: "Mustard",
+  price: 0.50,
+  category: 'topping'
+  )
+
+spicy_mustard = Ingredient.create!(
+  name: "Spicy Mustard",
+  price: 0.50,
+  category: 'topping'
   )
 
 avocado = Ingredient.create!(
   name: "Avocado",
-  price: 2.00
+  price: 2.00,
+  category: 'topping'
   )
 
 turkey = Ingredient.create!(
   name: "Turkey",
-  price: 2.00
+  price: 2.00,
+  category: 'meat'
+
   )
 
 roast_beef = Ingredient.create!(
   name: "Roast Beef",
-  price: 2.00
+  price: 2.00,
+  category: 'meat'
   )
 
 corned_beef = Ingredient.create!(
   name: "Corned Beef",
-  price: 3.00
+  price: 3.00,
+  category: 'meat'
   )
 
 smoked_salmon = Ingredient.create!(
   name: "Smoked Salmon",
-  price: 3.50
+  price: 3.50,
+  category: 'meat'
   )
 
 
 # bagel options
 # regular options
-custom_order_ingredients = [swap_plain_bagel]
+custom_order_ingredients = [plain_bagel]
 custom_order_ingredients.each do |ingredient|
   custom_order.options.create!(ingredient_id: ingredient.id, is_addon: false)
 end
 
-somerville_ingredients = [swap_variety_bagel, avocado, tomato, cucumber, tofutti_cc]
+somerville_ingredients = [wheat_bagel, avocado, tomato, cucumber, tofutti_cc]
 somerville_ingredients.each do |ingredient|
   somerville.options.create!(ingredient_id: ingredient.id, is_addon: false)
 end
 
-north_end_ingredients = [swap_variety_bagel, roast_beef, tomato, red_onions, asiago, provolone, mayo]
+north_end_ingredients = [onion_bagel, roast_beef, tomato, red_onions, asiago, provolone, mayo]
 north_end_ingredients.each do |ingredient|
   north_end.options.create!(ingredient_id: ingredient.id, is_addon: false)
 end
 
-south_end_ingredients = [swap_variety_bagel, corned_beef, coleslaw, swiss, tomato, spicy_mustard]
+south_end_ingredients = [sesame_bagel, corned_beef, coleslaw, swiss, tomato, spicy_mustard]
 south_end_ingredients.each do |ingredient|
   south_end.options.create!(ingredient_id: ingredient.id, is_addon: false)
 end
 
-hub_ingredients = [swap_plain_bagel, turkey, garlic_mayo, tomato, cucumber, sprouts]
+hub_ingredients = [plain_bagel, turkey, garlic_mayo, tomato, cucumber, sprouts]
 hub_ingredients.each do |ingredient|
   hub.options.create!(ingredient_id: ingredient.id, is_addon: false)
 end
 
-brookline_ingredients = [swap_plain_bagel, plain_cc, tomato, red_onions, smoked_salmon]
+brookline_ingredients = [plain_bagel, plain_cc, tomato, red_onions, smoked_salmon]
 brookline_ingredients.each do |ingredient|
   brookline.options.create!(ingredient_id: ingredient.id, is_addon: false)
 end
@@ -358,10 +397,18 @@ end
 # add on options
 sandwiches = [custom_order, somerville, north_end, south_end, hub, brookline]
 sandwiches.each do |sandwich|
-  ingredients = [swap_plain_bagel, swap_variety_bagel, tomato, cucumber, red_onions, coleslaw, sprouts, asiago, provolone, swiss, cheddar, mayo, garlic_mayo, mustard, spicy_mustard, plain_cc, chive_cc, tofutti_cc, salmon_spread, asiago, avocado, turkey, roast_beef, corned_beef, smoked_salmon]
+  ingredients = [plain_bagel, sesame_bagel, poppy_bagel, onion_bagel, wheat_bagel, raisin_bagel, tomato, cucumber, red_onions, coleslaw, plain_cc, chive_cc, tofutti_cc, salmon_spread, sprouts, asiago, provolone, swiss, cheddar, mayo, garlic_mayo, mustard, spicy_mustard, avocado, turkey, roast_beef, corned_beef, smoked_salmon]
   ingredients.each do |ingredient|
     if !sandwich.options.find_by(ingredient_id: ingredient.id).present?
       sandwich.options.create!(ingredient_id: ingredient.id, is_addon: true)
     end
+  end
+end
+
+boxes = [sm_bagel_box_single_var, lg_bagel_box_single_var]
+boxes.each do |box|
+  flavors = [sesame_bagel, poppy_bagel, onion_bagel, wheat_bagel, raisin_bagel]
+  flavors.each do |flavor|
+    box.options.create!(ingredient_id: flavor.id, is_addon: false)
   end
 end
