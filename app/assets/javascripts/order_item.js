@@ -17,9 +17,9 @@ var OrderItem = {
 
   },
 
-  showForm: function(menu_item_data) {
-    var dataID = menu_item_data.menu_item_id;
+  showForm: function(order_item_data) {
+    var dataID = order_item_data.menu_item_id;
     var $dataID = $("[data-id=" + dataID + "]");
-    $('body').append(HandlebarsTemplates.orderForm(menu_item_data));
+    $('body').append(HandlebarsTemplates.orderForm(order_item_data));
   }
 };
