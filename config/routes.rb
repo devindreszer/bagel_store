@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   resources :menu_items, only: [:index]
   resources :order_items, only: [:new, :create, :destroy]
-  resources :orders, only: [:show]
+  resources :orders, only: [:show, :index]
   resources :charges, only: [:new, :create]
 end

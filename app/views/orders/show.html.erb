@@ -1,4 +1,9 @@
 <h2 class="text-center">Order</h2>
-<%= render partial: "order_item", collection: @order.order_items %>
-<hr>
-<%= link_to "Checkout", new_charge_path(order_id: @order.id), class: "small button radius" %>
+<% unless @order.is_purchased %>
+  <%= render partial: "order_item", collection: @order.order_items %>
+  <hr>
+  <%= link_to "Checkout", new_charge_path(order_id: @order.id), class: "small button radius" %>
+<% else %>
+  <hr>
+  <h3 class="text-center">Cart is Empty</h3>
+<% end %>
