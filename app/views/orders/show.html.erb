@@ -4,6 +4,8 @@
   <hr>
 
   <h5>Order subtotal: <%= number_to_currency(@order.subtotal) %></h5>
+  <p> For delivery, please select from one of our available locations: </p>
+  <%= select_tag('delivery_charge', options_for_select(Neighborhood.all.map { |n| [n.neighborhood_name, n.id, n.delivery_charge] })) %>
   <%= link_to "Checkout", new_charge_path(order_id: @order.id), class: "small button radius" %>
 <% else %>
   <hr>
