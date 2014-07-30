@@ -1,6 +1,12 @@
 class OrderItemsController < ApplicationController
   before_action :set_order, only: [:create]
 
+  def default_serializer_options
+    { root: false }
+  end
+
+  respond_to :json, :html
+
   def new
     @order_item = OrderItem.new
     @order_item.menu_item_id = params[:menu_item_id]
@@ -13,6 +19,7 @@ class OrderItemsController < ApplicationController
         selection.is_selected = true
       end
     end
+    respond_with(@order_item)
 
     @menu_item = MenuItem.find(@order_item.menu_item_id)
   end
