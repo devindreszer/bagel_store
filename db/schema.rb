@@ -65,14 +65,14 @@ ActiveRecord::Schema.define(version: 20140730173637) do
 
   create_table "orders", force: true do |t|
     t.integer  "user_id"
-    t.decimal  "price",            precision: 8, scale: 2
+    t.decimal  "price",           precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_purchased"
-    t.integer  "neighborhoods_id"
+    t.integer  "neighborhood_id"
   end
 
-  add_index "orders", ["neighborhoods_id"], name: "index_orders_on_neighborhoods_id", using: :btree
+  add_index "orders", ["neighborhood_id"], name: "index_orders_on_neighborhood_id", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "selections", force: true do |t|

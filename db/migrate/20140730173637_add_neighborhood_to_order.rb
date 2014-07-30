@@ -1,7 +1,7 @@
 class AddNeighborhoodToOrder < ActiveRecord::Migration
   def change
     change_table :orders do |t|
-      t.references :neighborhoods, index: true
+      t.references :neighborhood, index: true
     end
   end
 end
