@@ -1,5 +1,5 @@
 <div class="contain-to-grid">
-  <nav class="top-bar" data-topbar>
+  <nav class="top-bar text-center" data-topbar>
     <ul class="title-area">
       <li class= "name">
         <h1><%= link_to root_path, class: "site-name" do %>bob's bagel<% end %></h1>
@@ -7,7 +7,7 @@
       <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
     </ul>
     <section class="top-bar-section">
-      <ul class="right">
+      <ul class="left">
         <li>
           <%= link_to menu_items_path(is_bulk: false), title: "personal-menu" do %>
             Personal Menu
@@ -18,11 +18,8 @@
             Bulk Order
           <% end %>
         </li>
-        <li>
-          <%= link_to order_path(session[:order_id]), title: "current-order" do %>
-            Current Order
-          <% end %>
-        </li>
+      </ul>
+      <ul class="right">
         <% if user_signed_in? %>
           <li class="has-dropdown">
             <%= link_to "#" do %>
@@ -37,6 +34,11 @@
           <li><%= link_to "Sign up", new_user_registration_path, class: "small button radius" %></li>
           <li><%= link_to "Login", new_user_session_path %></li>
         <% end %>
+        <li>
+          <%= link_to order_path(session[:order_id]), title: "current-order" do %>
+            Current Order
+          <% end %>
+        </li>
       </ul>
     </section>
   </nav>
