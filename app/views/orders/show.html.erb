@@ -1,4 +1,4 @@
-<h2>Order</h2>
+<h2 class="text-center">Order</h2>
 <%= render partial: "order_item", collection: @order.order_items %>
 <hr>
 <%= link_to "Checkout", new_charge_path(order_id: @order.id), class: "small button radius" %>
