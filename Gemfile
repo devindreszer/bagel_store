@@ -73,3 +73,13 @@ gem 'stripe', '~> 1.14.0'
 
 # Need groups: [:development, :test] ?
 gem 'dotenv-rails', '~> 0.11.1'
+
+# Access Rails routes in your JavaScript
+# (run `rake tmp:cache:clear` after changing routes)
+gem 'js-routes'
+
+# Serializers
+gem 'active_model_serializers'
+
+# Add Handlebars template support
+gem 'handlebars_assets'
