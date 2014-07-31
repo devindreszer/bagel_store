@@ -7,8 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :set_order
 
   def after_sign_in_path_for(resource_or_scope)
-    logging_in
-    guest_user.destroy
+    current_or_guest_user.orders.last
   end
 
   # if user is logged in, return current_user, else return guest_user
