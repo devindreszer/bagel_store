@@ -1,7 +1,7 @@
 <hr>
 <div class="order-item">
   <div class="row">
-    <div class="small-3 columns">
+    <div class="small-4 columns">
       <div class="order-item-image">
         <%= image_tag(order_item.menu_item.image_url, alt: order_item.menu_item.name) %>
       </div>
@@ -22,14 +22,18 @@
     </div>
 
     <div class="small-1 columns">
-      <%= link_to edit_order_item_path(order_item.id), title: "edit-order-item" do %>
-        <i class="fi-pencil edit-order-item"></i>
-      <% end %>
-    </div>
-     <div class="small-1 columns">
-      <%= link_to order_item_path(order_item.id), method: :delete, title: "delete-order-item" do %>
-        <i class="fi-x delete-order-item"></i>
-      <% end %>
+      <div class="row">
+        <div id="edit-order-item" class="small-6 columns" data-id="<%= order_item.id %>">
+          <%= link_to edit_order_item_path(order_item.id), title: "edit-order-item" do %>
+            <i class="fi-pencil edit-order-item"></i>
+          <% end %>
+        </div>
+        <div class="small-6 columns">
+          <%= link_to order_item_path(order_item.id), method: :delete, title: "delete-order-item" do %>
+            <i class="fi-x delete-order-item"></i>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

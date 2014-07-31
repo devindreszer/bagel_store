@@ -42,7 +42,7 @@ class OrderItemsController < ApplicationController
 
   def edit
     @order_item = OrderItem.find(params[:id])
-    @menu_item = MenuItem.find(@order_item.menu_item_id)
+    respond_with(@order_item)
   end
 
   def update

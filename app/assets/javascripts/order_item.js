@@ -1,7 +1,21 @@
 var OrderItem = {
   initialize: function() {
     $('.menu-item').find('a').click(this.getForm.bind(this));
+    $('#edit-order-item').click(this.getExistingItem.bind(this));
     $('body').on('submit', '#order-item-form', this.submitForm.bind(this));
+  },
+
+  getExistingItem: function(event) {
+    var dataID = $(event.currentTarget).data('id');
+    debugger;
+
+    event.preventDefault();
+
+    $.ajax({
+      dataType: 'json',
+      url: Routes.edit_order_item_path(dataID)
+    })
+    .done(this.showForm.bind(this));
   },
 
   getForm: function(event) {
