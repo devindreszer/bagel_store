@@ -48,8 +48,6 @@ class OrderItem < ActiveRecord::Base
         self.price += selection.option.ingredient.price
       end
     end
-
-    self.order.add_item_price(self.price * self.quantity)
   end
 
 end

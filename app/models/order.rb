@@ -11,11 +11,6 @@ class Order < ActiveRecord::Base
     subtotal
   end
 
-  def add_item_price(item_price)
-    self.price += item_price
-    self.save
-  end
-
   def delivery_charge
     charge = 0
     if self.neighborhood_id.present?
@@ -25,7 +20,7 @@ class Order < ActiveRecord::Base
   end
 
   def total_price
-    self.price += self.delivery_charge
+    self.price = self.subtotal + self.delivery_charge
   end
 
 end
