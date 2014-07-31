@@ -10,8 +10,14 @@
 </ul>
 
 <% if @menu_items.present? && @menu_items.first.is_bulk == false %>
-  <%= link_to new_order_item_path(menu_item_id: 1) do %>
-    <%= render "build" %>
-  <% end %>
+  <div class="menu-item" data-id='1'>
+    <%= link_to new_order_item_path(menu_item_id: 1) do %>
+      <div id="build-your-own">
+        <div id="build-text">
+          <h2 class="text-center">Build Your Own Sandwich</h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
