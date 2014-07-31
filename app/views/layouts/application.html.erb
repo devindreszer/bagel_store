@@ -32,8 +32,13 @@
         <% end %>
 
       <%= yield %>
+
       </div>
     </div>
+
+    <% if request.path == "/" %>
+      <%= render partial: "layouts/bio" %>
+    <% end %>
 
     <%= render partial: "layouts/footer" %>
 

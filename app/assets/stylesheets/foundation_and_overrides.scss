@@ -44,7 +44,7 @@ $include-html-global-classes: $include-html-classes;
 // $font-weight-bold: bold !default;
 
 // We use these to control various global styles
-$body-bg: #f4f7f8;
+$body-bg: #FFFFF4;
 // $body-font-color: #222;
 $body-font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $font-weight-normal:normal;
@@ -60,7 +60,7 @@ $body-font-weight: $font-weight-normal;
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #008CBA;
+$primary-color: #A52100;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -1193,11 +1193,11 @@ $sub-nav-active-cursor: default;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg-color: #333;
+$topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: 45px;
+$topbar-height: 50px;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
@@ -1215,17 +1215,17 @@ $sub-nav-active-cursor: default;
 
 // Set the link colors and styles for top-level nav
 // $topbar-link-color: #fff;
-// $topbar-link-color-hover: #fff;
+$topbar-link-color-hover: $primary-color;
 // $topbar-link-color-active: #fff;
 // $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: $font-weight-normal;
-// $topbar-link-font-size: rem-calc(13);
-// $topbar-link-hover-lightness: -10%; // Darken by 10%
+$topbar-link-font-size: rem-calc(15);
+$topbar-link-hover-lightness: +10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
-// $topbar-link-bg-color-hover: #555555;
-// $topbar-link-bg-hover: #272727;
+// $topbar-link-bg-color-hover: $topbar-bg;
+$topbar-link-bg-hover: $topbar-bg;
 // $topbar-link-bg-active: $primary-color;
-// $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
+// $topbar-link-bg-active-hover: $topbar-bg;
 // $topbar-link-font-family: $body-font-family;
 // $topbar-link-text-transform: none;
 // $topbar-link-padding: $topbar-height / 3;
@@ -1244,7 +1244,7 @@ $sub-nav-active-cursor: default;
 // $topbar-menu-link-font-size: rem-calc(13);
 // $topbar-menu-link-weight: $font-weight-bold;
 // $topbar-menu-link-color: #fff;
-// $topbar-menu-icon-color: #fff;
+$topbar-menu-icon-color: $primary-color;
 // $topbar-menu-link-color-toggled: #888;
 // $topbar-menu-icon-color-toggled: #888;
 

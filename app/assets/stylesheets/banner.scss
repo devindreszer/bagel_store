@@ -8,12 +8,16 @@
   #banner-text {
     position: relative;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
     transform: translateY(-50%);
 
     h1 {
       color: white;
+      text-shadow: black 0.1em 0.1em 0.1em;
     }
+  }
+
+  .small.button.radius {
+    box-shadow: 0 0 0.2em black;
   }
 }

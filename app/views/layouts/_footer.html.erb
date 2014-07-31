@@ -1,3 +1,45 @@
-<footer id="footer", class="text-center">
-  <h3>Bob's Bagels</h3>
-</footer>
+<div id="footer">
+  <div class="row">
+    <div class="small-2 columns">
+      <div class="map_img">
+        <%= image_tag("melcher_map.png", alt: "Come see us on Melcher!") %>
+      </div>
+    </div>
+    <div class="small-4 columns">
+      <p>Bob's Bagels<br />
+        51 Melcher St<br />
+        Boston, MA 02210</p>
+    </div>
+    <div class="small-3 columns">
+      <ul style="list-style: none;", class="text-center">
+        <li>
+          <%= link_to menu_items_path(is_bulk: false), title: "personal-menu" do %>
+            Personal Menu
+          <% end %>
+        </li>
+        <li>
+          <%= link_to menu_items_path(is_bulk: true), title: "bulk-order" do %>
+            Bulk Order
+          <% end %>
+        </li>
+        <li>
+          <%= link_to order_path(session[:order_id]), title: "current-order" do %>
+            Current Order
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class="small-3 columns">
+      <ul  style="list-style: none;", class="text-center">
+        <% if user_signed_in? %>
+          <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+          <li><%= link_to 'Order History', orders_path %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Login", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

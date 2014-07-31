@@ -1,0 +1,25 @@
+#bio {
+  width: 100%;
+  background-color: #D8A868;
+  color: #ffffff;
+  padding: 2rem;
+  margin: 2rem 0;
+
+  img {
+  -moz-border-radius: 3%;
+  -webkit-border-radius: 3%;
+  border-color: #A52100;
+  }
+
+  #bio-text {
+
+    p {
+    padding: 2rem;
+    text-shadow: 0 0 0.2em black;
+    font-size: large;
+    letter-spacing: 0.0525em;
+    line-height: 2.0rem;
+    }
+
+  }
+}
