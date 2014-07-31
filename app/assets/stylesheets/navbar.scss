@@ -1,1 +1,37 @@
+.logo-wrapper {
+position: relative;
+
+    .logo {
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    padding: 10px;
+
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 0.5px;
+    margin-left: -49px;
+    z-index: 2;
+    }
+}
+
+// Right part
+.top-bar-section ul.right {
+    width: 440px;
+    padding-left: 60px;
+    padding-right: -20px;
+}
+
+.top-bar-section ul.right li {
+    float:  right;
+}
+
+// Left part
+.top-bar-section ul.left {
+    width:  440px;
+    padding-right: 60px;
+    padding-left: -20px;
+}
 
