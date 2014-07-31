@@ -16,4 +16,8 @@ class Order < ActiveRecord::Base
     self.save
   end
 
+  def delivery_charge
+    self.neighborhood.delivery_charge
+  end
+
 end

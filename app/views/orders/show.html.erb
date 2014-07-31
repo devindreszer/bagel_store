@@ -4,16 +4,17 @@
   <hr>
 
   <h5>Order subtotal: <%= number_to_currency(@order.subtotal) %></h5>
-
+  <h5>Delivery charge: <%= number_to_currency(@order.delivery_charge) %></h5>
   <div>
   <% unless @order.neighborhood_id.present? %>
     <p> For delivery, please select from one of our available locations: </p>
-    <%= form_for @order do |f| %>
-      <%= f.select(:neighborhood_id, options_from_collection_for_select(@neighborhoods, :id, :neighborhood_name), include_blank: true, prompt: "Select a delivery neighborhood") %>
-        <%= f.submit "Choose delivery location", class: "small button radius" %>
-      <% end %>
+    <%= render 'neighborhood_selection'%>
   <% else %>
     <p> Delivery location selected: <%= @order.neighborhood.neighborhood_name %></p>
+    <div id="edit-neighborhood">
+      <%= render 'neighborhood_selection'%>
+    </div>
+    <p><button id="edit-delivery-location", class="small button radius">Edit Delivery Location</button></p>
   <% end %>
   </div>
 
