@@ -168,50 +168,54 @@
           <div class="large-5 small-12 columns">
             <label>Choose your Meat</label>
             {{#each selections}}
-              {{#with option}}
-                {{#if is_addon}}
-                {{#if ingredient.is_meat}}
+              {{#if option.is_addon}}
+                {{#if option.ingredient.is_meat}}
                   <div class="row">
                     <div class="small-1  columns">
-                      <input type="checkbox" name="option_id" value="{{id}}" id="{{id}}">
+                      {{#if is_selected}}
+                        <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}" checked>
+                      {{else}}
+                        <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}">
+                      {{/if}}
                     </div>
-                    <label for="{{id}}">
+                    <label for="{{option.id}}">
                     <div class="small-6 columns">
-                      {{ingredient.name}}
+                      {{option.ingredient.name}}
                     </div>
                     <div class="small-4 columns text-right">
-                      {{ingredient.price}}
+                      {{option.ingredient.price}}
                     </div>
                     </label>
                   </div>
                 {{/if}}
-                {{/if}}
-              {{/with}}
+              {{/if}}
             {{/each}}
           </div>
 
           <div class="large-5 small-12 columns">
             <label>Choose your Toppings</label>
             {{#each selections}}
-              {{#with option}}
-                {{#if is_addon}}
-                {{#if ingredient.is_topping}}
+              {{#if option.is_addon}}
+                {{#if option.ingredient.is_topping}}
                   <div class="row">
                     <div class="small-1  columns">
-                      <input type="checkbox" name="option_id" value="{{id}}" id="{{id}}">
+                      {{#if is_selected}}
+                        <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}" checked>
+                      {{else}}
+                        <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}">
+                      {{/if}}
                     </div>
-                    <label for="{{id}}">
+                    <label for="{{option.id}}">
                     <div class="small-6 columns">
-                      {{ingredient.name}}
+                      {{option.ingredient.name}}
                     </div>
                     <div class="small-4 columns text-right">
-                      {{ingredient.price}}
+                      {{option.ingredient.price}}
                     </div>
                     </label>
                   </div>
                 {{/if}}
-                {{/if}}
-              {{/with}}
+              {{/if}}
             {{/each}}
           </div>
         </div>
