@@ -20,4 +20,8 @@ class Order < ActiveRecord::Base
     self.neighborhood.delivery_charge
   end
 
+  def total_price
+    self.price += self.delivery_charge
+  end
+
 end
