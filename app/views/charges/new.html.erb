@@ -1,10 +1,20 @@
+<h3>Confirm Order</h3>
+<hr>
+<p>Quantity:</p>
+<p>Item:</p>
+<p>Price:</p>
+<hr>
+<p>Subtotal: </p>
+<p>Delivery charge: </p>
+<hr>
+
 <%= form_tag charges_path(order_id: params[:order_id]) do %>
   <article>
     <label class="amount">
-      <span>Amount: <%= number_to_currency(@amount / 100.0) %> </span>
+      <p>Total Price: <%= number_to_currency(@amount / 100.0) %> </p>
     </label>
   </article>
-
+<br/>
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Credit Card Information"
