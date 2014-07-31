@@ -5,8 +5,8 @@ class Order < ActiveRecord::Base
 
   def subtotal
     subtotal = 0
-    order_items.each do |item|
-      subtotal += item.price
+    self.order_items.each do |item|
+      subtotal += item.price * item.quantity
     end
     subtotal
   end
