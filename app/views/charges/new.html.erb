@@ -1,10 +1,36 @@
+<h3>Confirm Order</h3>
+<hr>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quantity:</th>
+      <th>Item:</th>
+      <th>Price:</th>
+    </tr>
+  </thead>
+<% @order.order_items.each do |order_item| %>
+  <tbody>
+    <tr>
+      <td><%= order_item.quantity %></td>
+      <td><%= order_item.menu_item.name %></td>
+      <td><%= number_to_currency(order_item.price) %></td>
+    </tr>
+  </tbody>
+<% end %>
+  </table>
+<hr>
+<p>Subtotal: <%= number_to_currency(@order.subtotal) %> </p>
+<p>Delivery charge: <%= number_to_currency(@order.delivery_charge) %></p>
+<hr>
+
 <%= form_tag charges_path(order_id: params[:order_id]) do %>
   <article>
     <label class="amount">
-      <span>Amount: <%= number_to_currency(@amount / 100.0) %> </span>
+      <p>Total Price: <%= number_to_currency(@amount / 100.0) %> </p>
     </label>
   </article>
-
+<br/>
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Credit Card Information"
