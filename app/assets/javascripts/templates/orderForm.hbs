@@ -1,4 +1,3 @@
-{{#with menu_item}}
 <div id="overlay"></div>
   <div class="reveal-modal open" data-reveal="" style="visibility: visible; display: block; opacity: 1;">
     <div class="row">
@@ -6,14 +5,17 @@
         <div class="row">
           <div class="small-6 columns">
             <p class="text-left">
-              <a href="/menu_items?is_bulk={{is_bulk}}">Back to Menu</a>
+              <a href="/menu_items?is_bulk={{menu_item.is_bulk}}">Back to Menu</a>
             </p>
           </div>
           <div class="small-6 columns">
             <p class="text-right">
+              <a href="/orders/{{order_id}}">Current Order</a>
             </p>
           </div>
         </div>
+
+        {{#with menu_item}}
 
         <div class="body-content row">
           <div class="small-12 small-centered columns">
@@ -24,8 +26,8 @@
           </div>
         </div>
 
-        <form id="order-item-form" action="/orders" method="post">
-          <input type="hidden" name="menu_item_id" value="{{id}}">
+
+
         <div class="row">
           <div class="large-8 small-12 columns">
             <div class="form-image">
@@ -35,7 +37,16 @@
           <div class="large-4 small-12 columns">
             <div class="form-description"><p>{{description}}</p></div>
             <div class="form-price"><p>{{price}}</p></div>
-{{/with}}
+
+        {{/with}}
+
+        {{#if id}}
+          <form id="edit-order-item-form" action="/order_item/{{id}}" method="patch" data-id="{{id}}">
+        {{else}}
+          <form id="new-order-item-form" action="/order_items" method="post">
+            <input type="hidden" name="menu_item_id" value="{{id}}">
+        {{/if}}
+
             <label>Quantity
               <select name="quantity">
                 <option value="1">1</option>
@@ -170,7 +181,12 @@
 
         {{/if}}
         <hr>
-        <button id="submit-order-item" type="submit" class="small button radius">Add to Order</button>
+
+        {{#if id}}
+          <button id="submit-order-item" type="submit" class="small button radius">Update Order</button>
+        {{else}}
+          <button id="submit-order-item" type="submit" class="small button radius">Add to Order</button>
+        {{/if}}
         </form>
       </div>
     </div>

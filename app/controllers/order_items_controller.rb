@@ -50,7 +50,7 @@ class OrderItemsController < ApplicationController
     order = @order_item.order
     @order_item.selections = []
     if @order_item.update!(order_item_params)
-      redirect_to order, alert: "Order updated."
+      respond_with(@order_item)
     end
   end
 

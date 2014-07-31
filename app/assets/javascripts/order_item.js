@@ -1,13 +1,13 @@
 var OrderItem = {
   initialize: function() {
-    $('.menu-item').find('a').click(this.getForm.bind(this));
+    $('.menu-item').find('a').click(this.getNewItem.bind(this));
     $('#edit-order-item').click(this.getExistingItem.bind(this));
-    $('body').on('submit', '#order-item-form', this.submitForm.bind(this));
+    $('body').on('submit', '#new-order-item-form', this.submitNewForm.bind(this));
+    $('body').on('submit', '#edit-order-item-form', this.submitEditForm.bind(this));
   },
 
   getExistingItem: function(event) {
     var dataID = $(event.currentTarget).data('id');
-    debugger;
 
     event.preventDefault();
 
@@ -18,7 +18,7 @@ var OrderItem = {
     .done(this.showForm.bind(this));
   },
 
-  getForm: function(event) {
+  getNewItem: function(event) {
     var dataID = $(event.currentTarget).closest('.menu-item').data('id');
 
     event.preventDefault();
@@ -35,7 +35,7 @@ var OrderItem = {
     $('body').append(HandlebarsTemplates.orderForm(order_item_data));
   },
 
-  submitForm: function(event) {
+  submitNewForm: function(event) {
     var formData = $(event.currentTarget).serializeArray(),
       orderItemAttr = {},
       selectionsAttr = [],
@@ -55,6 +55,33 @@ var OrderItem = {
     $.ajax({
       url: Routes.order_items_path(),
       type: 'POST',
+      dataType: 'json',
+      data: paramsHash,
+    })
+    .done(this.showOrder.bind(this));
+  },
+
+  submitEditForm: function(event) {
+    var dataID = $(event.currentTarget).data('id'),
+      formData = $(event.currentTarget).serializeArray(),
+      orderItemAttr = {},
+      selectionsAttr = [],
+      paramsHash = {};
+
+    formData.forEach(function(data){
+      if(data.name === "option_id" && data.value !== "") {
+        selectionsAttr.push({ "option_id": data.value, "is_selected": true });
+      } else {
+        orderItemAttr[data.name] = data.value;
+      }
+    });
+    orderItemAttr["selections_attributes"] = selectionsAttr;
+    paramsHash["order_item"] = orderItemAttr;
+
+    event.preventDefault();
+    $.ajax({
+      url: Routes.order_item_path(dataID),
+      type: 'PATCH',
       dataType: 'json',
       data: paramsHash,
     })
