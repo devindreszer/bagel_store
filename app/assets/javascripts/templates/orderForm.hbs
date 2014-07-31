@@ -1,107 +1,194 @@
 <div id="overlay"></div>
   <div class="reveal-modal open" data-reveal="" style="visibility: visible; display: block; opacity: 1;">
     <div class="row">
-      <div class="small-6 columns">
-        <p class="text-left">
-          <a href="/menu_items?is_bulk={{is_bulk}}">Back to Menu</a>
-        </p>
-      </div>
-      <div class="small-6 columns">
-        <p class="text-right">
-        </p>
-      </div>
-    </div>
-
-    <div class="body-content row">
       <div class="small-12 small-centered columns">
-        <div class="form-name">
-          <h3 class="text-center">{{menu_item_name}}</h3>
+        <div class="row">
+          <div class="small-6 columns">
+            <p class="text-left">
+              <a href="/menu_items?is_bulk={{menu_item.is_bulk}}">Back to Menu</a>
+            </p>
+          </div>
+          <div class="small-6 columns">
+            <p class="text-right">
+              <a href="/orders/{{order_id}}">Current Order</a>
+            </p>
+          </div>
         </div>
-        <hr>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="small-8 columns">
-        <div class="form-image">
-          <img alt={{menu_item_name}} src={{menu_item_image_url}}>
+        {{#if id}}
+        <form id="edit-order-item-form" action="/order_item/{{id}}" method="patch" data-id="{{id}}">
+          <input type="hidden" name="order_id" value="{{order_id}}">
+        {{else}}
+        <form id="new-order-item-form" action="/order_items" method="post">
+          <input type="hidden" name="menu_item_id" value="{{menu_item.id}}">
+        {{/if}}
+
+        {{#with menu_item}}
+
+        <div class="row">
+          <div class="small-12 small-centered columns">
+            <div class="form-name">
+              <h3 class="text-center">{{name}}</h3>
+            </div>
+            <hr>
+          </div>
         </div>
-      </div>
-      <div class="small-4 columns">
-        <div class="form-description"><p>{{menu_item_description}}</p></div>
-        <div class="form-price"><p>{{menu_item_price}}</p></div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="small-12 small-centered columns">
+        <div class="row">
+          <div class="large-8 small-12 columns">
+            <div class="form-image">
+              <img alt={{name}} src={{image_url}}>
+            </div>
+          </div>
+          <div class="large-4 small-12 columns">
+            <div class="form-description"><p>{{description}}</p></div>
+            <div class="form-price"><p>{{price}}</p></div>
+
+        {{/with}}
+
+            <label>Quantity
+              <select name="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        {{#if selections}}
+
         <hr>
-        <h3>Customize</h3>
+        <h3 class="text-center">Included Ingredients</h3>
+        <div class="row">
+          <div class="large-5 small-12 columns">
+            <label>Remove Ingredients</label>
+            {{#each selections}}
+              {{#with option}}
+                {{#unless is_addon}}
+                  <div class="row">
+                    <div class="small-1  columns">
+                      <input type="checkbox" name="option_id" value="{{id}}" id="{{id}}" checked>
+                    </div>
+                    <label for="{{id}}">
+                    <div class="small-6 columns">
+                      {{ingredient.name}}
+                    </div>
+                    <div class="small-4 columns text-right">
+                      Included
+                    </div>
+                    </label>
+                  </div>
+                {{/unless}}
+              {{/with}}
+            {{/each}}
+          </div>
+        </div>
+
+        <hr>
+
+        <h3 class="text-center">Additional Ingredients</h3>
+        <div class="row">
+          <div class="large-5 small-12 columns">
+          <label>Choose a Bagel
+              <select name="option_id">
+                <option value="">--Select a Different Bagel--</option>
+                {{#each selections}}
+                  {{#with option}}
+                    {{#if is_addon}}
+                    {{#if ingredient.is_bagel}}
+                      <option value="{{id}}">{{ingredient.name}} {{#if ingredient.price}} {{ingredient.price}}{{/if}}</option>
+                    {{/if}}
+                    {{/if}}
+                  {{/with}}
+                {{/each}}
+              </select>
+            </label>
+
+            <label>Choose a Cream Cheese
+              <select name="option_id">
+                <option value="">--Select a Cream Cheese--</option>
+                {{#each selections}}
+                  {{#with option}}
+                    {{#if is_addon}}
+                    {{#if ingredient.is_cc}}
+                      <option value="{{id}}">{{ingredient.name}} {{#if ingredient.price}} {{ingredient.price}}{{/if}}</option>
+                    {{/if}}
+                    {{/if}}
+                  {{/with}}
+                {{/each}}
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="large-5 small-12 columns">
+            <label>Choose your Meat</label>
+            {{#each selections}}
+              {{#with option}}
+                {{#if is_addon}}
+                {{#if ingredient.is_meat}}
+                  <div class="row">
+                    <div class="small-1  columns">
+                      <input type="checkbox" name="option_id" value="{{id}}" id="{{id}}">
+                    </div>
+                    <label for="{{id}}">
+                    <div class="small-6 columns">
+                      {{ingredient.name}}
+                    </div>
+                    <div class="small-4 columns text-right">
+                      {{ingredient.price}}
+                    </div>
+                    </label>
+                  </div>
+                {{/if}}
+                {{/if}}
+              {{/with}}
+            {{/each}}
+          </div>
+
+          <div class="large-5 small-12 columns">
+            <label>Choose your Toppings</label>
+            {{#each selections}}
+              {{#with option}}
+                {{#if is_addon}}
+                {{#if ingredient.is_topping}}
+                  <div class="row">
+                    <div class="small-1  columns">
+                      <input type="checkbox" name="option_id" value="{{id}}" id="{{id}}">
+                    </div>
+                    <label for="{{id}}">
+                    <div class="small-6 columns">
+                      {{ingredient.name}}
+                    </div>
+                    <div class="small-4 columns text-right">
+                      {{ingredient.price}}
+                    </div>
+                    </label>
+                  </div>
+                {{/if}}
+                {{/if}}
+              {{/with}}
+            {{/each}}
+          </div>
+        </div>
+
+        {{/if}}
+        <hr>
+        <p>Total Price: {{price}}</p>
+
+        {{#if id}}
+          <button id="submit-order-item" type="submit" class="small button radius">Update Order</button>
+        {{else}}
+          <button id="submit-order-item" type="submit" class="small button radius">Add to Order</button>
+        {{/if}}
+        </form>
       </div>
     </div>
   </div>
 </div>
-
-{{!--
-<p class='item-description'><%= @menu_item.description %></p>
-
-<hr>
-
-<% if @menu_item.options.present? %>
-  <h4>Options</h4>
-<% end %>
-
-<%= form_for @order_item do |f| %>
-  <%= f.hidden_field :menu_item_id %>
-  <div class="row">
-    <div class="small-12 columns">
-      <ul class="medium-block-grid-2 small-block-grid-1">
-        <%= f.fields_for :selections do |selections_form| %>
-          <li>
-            <% option = selections_form.object.option %>
-            <% ingredient = option.ingredient %>
-            <%= selections_form.hidden_field :option_id %>
-
-            <div class="row">
-              <div class="small-1 columns">
-              </div>
-              <div class="small-7 columns">
-                <%= selections_form.check_box :is_selected %>
-                <%= selections_form.label :is_selected, ingredient.name %>
-              </div>
-              <div class="small-3 columns text-right">
-                <% if option.is_addon && ingredient.price > 0 %>
-                  <%= number_to_currency(ingredient.price) %>
-                <% elsif option.is_addon && ingredient.price == 0 %>
-                  Free
-                <% else %>
-                  Included
-                <% end %>
-              </div>
-              <div class="small-1 columns">
-              </div>
-            </div>
-
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="large-3 small-6 columns">
-      <div class="row">
-        <div class="small-6 columns">
-          <%= f.label :quantity, class: "inline" %>
-        </div>
-        <div class="small-6 columns">
-          <%= f.select :quantity, [1, 2, 3, 4, 5] %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <hr>
-  <%= f.submit "Add to Order", class: "small button radius" %>
-<% end %>
- --}}
