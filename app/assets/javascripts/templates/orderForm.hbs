@@ -67,12 +67,76 @@
         {{#if selections}}
 
         <hr>
+        <h3 class="text-center">Customizable Ingredients</h3>
+
+        <div class="row">
+          <div class="large-5 small-12 columns">
+          <label>Choose a Bagel
+              <select name="option_id">
+                <option value="">--Select a Different Bagel--</option>
+                {{#each selections}}
+                  {{#if option.ingredient.is_bagel}}
+                    {{#if is_selected}}
+                      <option value="{{option.id}}" selected>{{option.ingredient.name}}
+                        {{#if option.is_addon}}
+                          {{#if option.ingredient.price}}
+                            {{option.ingredient.price}}
+                          {{/if}}
+                        {{/if}}
+                      </option>
+                    {{else}}
+                      <option value="{{option.id}}">{{option.ingredient.name}}
+                        {{#if option.is_addon}}
+                          {{#if option.ingredient.price}}
+                            {{option.ingredient.price}}
+                          {{/if}}
+                        {{/if}}
+                      </option>
+                    {{/if}}
+                  {{/if}}
+                {{/each}}
+              </select>
+            </label>
+
+            <label>Choose a Cream Cheese
+              <select name="option_id">
+                <option value="">--Select a Cream Cheese--</option>
+                {{#each selections}}
+                  {{#if option.ingredient.is_cc}}
+                    {{#if is_selected}}
+                      <option value="{{option.id}}" selected>{{option.ingredient.name}}
+                        {{#if option.is_addon}}
+                          {{#if option.ingredient.price}}
+                            {{option.ingredient.price}}
+                          {{/if}}
+                        {{/if}}
+                      </option>
+                    {{else}}
+                      <option value="{{option.id}}">{{option.ingredient.name}}
+                        {{#if option.is_addon}}
+                          {{#if option.ingredient.price}}
+                            {{option.ingredient.price}}
+                          {{/if}}
+                        {{/if}}
+                      </option>
+                    {{/if}}
+                  {{/if}}
+                {{/each}}
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <hr>
         <h3 class="text-center">Included Ingredients</h3>
+
         <div class="row">
           <div class="large-5 small-12 columns">
             <label>Remove Ingredients</label>
             {{#each selections}}
               {{#unless option.is_addon}}
+              {{#unless option.ingredient.is_bagel}}
+              {{#unless option.ingredient.is_cc}}
                 <div class="row">
                   <div class="small-1  columns">
                     {{#if is_selected}}
@@ -91,52 +155,14 @@
                   </label>
                 </div>
               {{/unless}}
+              {{/unless}}
+              {{/unless}}
             {{/each}}
           </div>
         </div>
 
         <hr>
-
-        <h3 class="text-center">Customizable Ingredients</h3>
-        <div class="row">
-          <div class="large-5 small-12 columns">
-          <label>Choose a Bagel
-              <select name="option_id">
-                <option value="">--Select a Different Bagel--</option>
-                {{#each selections}}
-                  {{#if option.is_addon}}
-                    {{#if option.ingredient.is_bagel}}
-                      {{#if is_selected}}
-                        <option value="{{option.id}}" selected>{{option.ingredient.name}} {{#if option.ingredient.price}} {{option.ingredient.price}}{{/if}}</option>
-                      {{else}}
-                        <option value="{{option.id}}">{{option.ingredient.name}} {{#if option.ingredient.price}} {{option.ingredient.price}}{{/if}}</option>
-                      {{/if}}
-                    {{/if}}
-                  {{/if}}
-                {{/each}}
-              </select>
-            </label>
-
-            <label>Choose a Cream Cheese
-              <select name="option_id">
-                <option value="">--Select a Cream Cheese--</option>
-                {{#each selections}}
-                  {{#if option.is_addon}}
-                    {{#if option.ingredient.is_cc}}
-                      {{#if is_selected}}
-                        <option value="{{option.id}}" selected>{{option.ingredient.name}} {{#if option.ingredient.price}} {{option.ingredient.price}}{{/if}}</option>
-                      {{else}}
-                        <option value="{{option.id}}">{{option.ingredient.name}} {{#if option.ingredient.price}} {{option.ingredient.price}}{{/if}}</option>
-                      {{/if}}
-                    {{/if}}
-                  {{/if}}
-                {{/each}}
-              </select>
-            </label>
-          </div>
-        </div>
-
-        <hr>
+        <h3 class="text-center">Additional Ingredients</h3>
 
         <div class="row">
           <div class="large-5 small-12 columns">
