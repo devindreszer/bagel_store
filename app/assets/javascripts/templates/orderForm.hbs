@@ -51,6 +51,9 @@
 
             <label>Quantity
               <select name="quantity">
+                {{#if quantity}}
+                  <option value="{{quantity}}" selected>--Current Quantity: {{quantity}}--</option>
+                {{/if}}
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -69,23 +72,25 @@
           <div class="large-5 small-12 columns">
             <label>Remove Ingredients</label>
             {{#each selections}}
-              {{#with option}}
-                {{#unless is_addon}}
-                  <div class="row">
-                    <div class="small-1  columns">
-                      <input type="checkbox" name="option_id" value="{{id}}" id="{{id}}" checked>
-                    </div>
-                    <label for="{{id}}">
-                    <div class="small-6 columns">
-                      {{ingredient.name}}
-                    </div>
-                    <div class="small-4 columns text-right">
-                      Included
-                    </div>
-                    </label>
+              {{#unless option.is_addon}}
+                <div class="row">
+                  <div class="small-1  columns">
+                    {{#if is_selected}}
+                      <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}" checked>
+                    {{else}}
+                      <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}">
+                    {{/if}}
                   </div>
-                {{/unless}}
-              {{/with}}
+                  <label for="{{option.id}}">
+                  <div class="small-6 columns">
+                    {{option.ingredient.name}}
+                  </div>
+                  <div class="small-4 columns text-right">
+                    Included
+                  </div>
+                  </label>
+                </div>
+              {{/unless}}
             {{/each}}
           </div>
         </div>
@@ -183,7 +188,7 @@
 
         {{/if}}
         <hr>
-        <p>Total Price: {{price}}</p>
+        <p>Total Price: {{total_price}}</p>
 
         {{#if id}}
           <button id="submit-order-item" type="submit" class="small button radius">Update Order</button>
