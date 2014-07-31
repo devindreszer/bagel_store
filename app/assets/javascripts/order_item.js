@@ -1,6 +1,7 @@
 var OrderItem = {
   initialize: function() {
     $('.menu-item').find('a').click(this.getForm.bind(this));
+    $('body').on('submit', '#order-item-form', this.submitForm.bind(this));
   },
 
   getForm: function(event) {
@@ -14,12 +15,42 @@ var OrderItem = {
       data: {menu_item_id: dataID}
     })
     .done(this.showForm.bind(this));
-
   },
 
   showForm: function(order_item_data) {
     var dataID = order_item_data.menu_item_id;
     var $dataID = $("[data-id=" + dataID + "]");
     $('body').append(HandlebarsTemplates.orderForm(order_item_data));
+  },
+
+  submitForm: function(event) {
+    var formData = $(event.currentTarget).serializeArray(),
+      orderItemAttr = {},
+      selectionsAttr = [],
+      paramsHash = {};
+
+    formData.forEach(function(data){
+      if(data.name === "option_id") {
+        selectionsAttr.push({ "option_id": data.value, "is_selected": true });
+      } else {
+        orderItemAttr[data.name] = data.value;
+      }
+    });
+    orderItemAttr["selections_attributes"] = selectionsAttr;
+    paramsHash["order_item"] = orderItemAttr;
+
+    event.preventDefault();
+    $.ajax({
+      url: Routes.order_items_path(),
+      type: 'POST',
+      dataType: 'json',
+      data: paramsHash,
+    })
+    .done(this.showOrder.bind(this));
+  },
+
+  showOrder: function(order_item) {
+    window.location.replace(Routes.order_path(order_item.order_id));
   }
+
 };

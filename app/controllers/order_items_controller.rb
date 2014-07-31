@@ -20,8 +20,6 @@ class OrderItemsController < ApplicationController
       end
     end
     respond_with(@order_item)
-
-    @menu_item = MenuItem.find(@order_item.menu_item_id)
   end
 
   def create
@@ -38,7 +36,7 @@ class OrderItemsController < ApplicationController
     @order_item.order.price += (@order_item.price * @order_item.quantity)
     @order_item.order.save
     if @order_item.save!
-      redirect_to @order_item.order
+      respond_with(@order_item)
     end
   end
 

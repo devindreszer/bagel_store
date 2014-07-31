@@ -3,7 +3,11 @@ class IngredientSerializer < ActiveModel::Serializer
   attributes :id, :name, :price, :is_bagel, :is_topping, :is_cc, :is_cheese, :is_meat
 
   def price
-    "#{number_to_currency(object.price)}"
+    if object.price == 0
+      "Free"
+    else
+      "Add #{number_to_currency(object.price)}"
+    end
   end
 
   def is_bagel
