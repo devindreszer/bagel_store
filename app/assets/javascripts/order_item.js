@@ -38,12 +38,15 @@ var OrderItem = {
   },
 
   updatePrice: function(event) {
-    var targetElement = event.target.tagName,
+    var targetID = event.target.id,
+      targetElement = event.target.tagName,
       $target = $(event.target),
       prevSelectPrice,
       itemPrice,
       currentTotal,
-      newTotal;
+      quantity,
+      newTotal,
+      grandTotal;
 
     if(isNaN(parseFloat($target.data('prev')))) {
       prevSelectPrice = 0;
@@ -51,10 +54,13 @@ var OrderItem = {
       prevSelectPrice = parseFloat($target.data('prev'));
     }
 
-    if(targetElement === "SELECT") {
+    if(targetID === "quantity"){
+      itemPrice = 0;
+      prevSelectPrice = 0;
+    } else if(targetElement === "SELECT") {
       itemPrice = parseFloat($target.find(':selected').data('price'));
       parseFloat($target.data('prev', itemPrice));
-    } else {
+    } else if(targetElement === "INPUT") {
       if($target.is(':checked')) {
         itemPrice = parseFloat($target.data('price'));
       } else {
@@ -62,13 +68,22 @@ var OrderItem = {
       }
     }
 
+    quantity = parseInt($('#quantity').find(':selected').val());
     currentTotal = parseFloat($("#total-price").attr('data-price'));
     newTotal = (currentTotal + itemPrice - prevSelectPrice).toFixed(2);
+    grandTotal = (newTotal * quantity).toFixed(2);
 
-    $("#total-price")
+    if(quantity > 1) {
+      $("#total-price")
       .empty()
-      .append("Total Price: $" + newTotal)
+      .append("Total Price: " + quantity + " x $" + newTotal + ": $" + grandTotal)
       .attr('data-price', newTotal);
+    } else {
+      $("#total-price")
+      .empty()
+      .append("Total Price: $" + grandTotal)
+      .attr('data-price', newTotal);
+    }
   },
 
   submitNewForm: function(event) {
