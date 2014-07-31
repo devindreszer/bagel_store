@@ -17,6 +17,7 @@
 
         {{#if id}}
         <form id="edit-order-item-form" action="/order_item/{{id}}" method="patch" data-id="{{id}}">
+          <input type="hidden" name="order_id" value="{{order_id}}">
         {{else}}
         <form id="new-order-item-form" action="/order_items" method="post">
           <input type="hidden" name="menu_item_id" value="{{menu_item.id}}">

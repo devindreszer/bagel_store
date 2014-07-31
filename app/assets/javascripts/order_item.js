@@ -66,11 +66,14 @@ var OrderItem = {
       formData = $(event.currentTarget).serializeArray(),
       orderItemAttr = {},
       selectionsAttr = [],
-      paramsHash = {};
+      paramsHash = {},
+      orderID;
 
     formData.forEach(function(data){
       if(data.name === "option_id" && data.value !== "") {
         selectionsAttr.push({ "option_id": data.value, "is_selected": true });
+      } else if(data.name === "order_id") {
+        orderID = data.value;
       } else {
         orderItemAttr[data.name] = data.value;
       }
@@ -85,11 +88,11 @@ var OrderItem = {
       dataType: 'json',
       data: paramsHash,
     })
-    .done(this.showOrder.bind(this));
+    .done(this.showOrder(orderID).bind(this));
   },
 
-  showOrder: function(order_item) {
-    window.location.replace(Routes.order_path(order_item.order_id));
+  showOrder: function(orderID) {
+    window.location.replace(Routes.order_path(orderID));
   }
 
 };
