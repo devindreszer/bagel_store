@@ -1,8 +1,8 @@
 include ActionView::Helpers::NumberHelper
 class IngredientSerializer < ActiveModel::Serializer
-  attributes :id, :name, :price, :is_bagel, :is_topping, :is_cc, :is_cheese, :is_meat
+  attributes :id, :name, :price, :price_string, :is_bagel, :is_topping, :is_cc, :is_cheese, :is_meat
 
-  def price
+  def price_string
     if object.price == 0
       "Free"
     else

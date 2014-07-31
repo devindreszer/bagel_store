@@ -2,6 +2,7 @@ var OrderItem = {
   initialize: function() {
     $('.menu-item').find('a').click(this.getNewItem.bind(this));
     $('.edit-order-item').click(this.getExistingItem.bind(this));
+    $('body').on('change', '#new-order-item-form', this.updatePrice.bind(this));
     $('body').on('submit', '#new-order-item-form', this.submitNewForm.bind(this));
     $('body').on('submit', '#edit-order-item-form', this.submitEditForm.bind(this));
   },
@@ -34,6 +35,40 @@ var OrderItem = {
   showForm: function(order_item_data) {
     $(HandlebarsTemplates.orderForm(order_item_data)).hide().appendTo('body').fadeIn();
     $('html, body').animate({ scrollTop: 0 }, 0);
+  },
+
+  updatePrice: function(event) {
+    var targetElement = event.target.tagName,
+      $target = $(event.target),
+      prevSelectPrice,
+      itemPrice,
+      currentTotal,
+      newTotal;
+
+    if(isNaN(parseFloat($target.data('prev')))) {
+      prevSelectPrice = 0;
+    } else {
+      prevSelectPrice = parseFloat($target.data('prev'));
+    }
+
+    if(targetElement === "SELECT") {
+      itemPrice = parseFloat($target.find(':selected').data('price'));
+      parseFloat($target.data('prev', itemPrice));
+    } else {
+      if($target.is(':checked')) {
+        itemPrice = parseFloat($target.data('price'));
+      } else {
+        itemPrice = -parseFloat($target.data('price'));
+      }
+    }
+
+    currentTotal = parseFloat($("#total-price").attr('data-price'));
+    newTotal = (currentTotal + itemPrice - prevSelectPrice).toFixed(2);
+
+    $("#total-price")
+      .empty()
+      .append("Total Price: $" + newTotal)
+      .attr('data-price', newTotal);
   },
 
   submitNewForm: function(event) {
