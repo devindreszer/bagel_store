@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140730173637) do
     t.decimal  "price",      precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "category"
   end
 
   create_table "menu_items", force: true do |t|

@@ -1,6 +1,12 @@
 class OrderItemsController < ApplicationController
   before_action :set_order, only: [:create]
 
+  def default_serializer_options
+    { root: false }
+  end
+
+  respond_to :json, :html
+
   def new
     @order_item = OrderItem.new
     @order_item.menu_item_id = params[:menu_item_id]
@@ -13,6 +19,7 @@ class OrderItemsController < ApplicationController
         selection.is_selected = true
       end
     end
+    respond_with(@order_item)
 
     @menu_item = MenuItem.find(@order_item.menu_item_id)
   end
@@ -32,6 +39,20 @@ class OrderItemsController < ApplicationController
     @order_item.order.save
     if @order_item.save!
       redirect_to @order_item.order
+    end
+  end
+
+  def edit
+    @order_item = OrderItem.find(params[:id])
+    @menu_item = MenuItem.find(@order_item.menu_item_id)
+  end
+
+  def update
+    @order_item = OrderItem.find(params[:id])
+    order = @order_item.order
+    @order_item.selections = []
+    if @order_item.update!(order_item_params)
+      redirect_to order, alert: "Order updated."
     end
   end
 
