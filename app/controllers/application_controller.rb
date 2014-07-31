@@ -48,6 +48,9 @@ class ApplicationController < ActionController::Base
       order_item.user_id = current_user.id
       order_item.save!
     end
+    order = guest_user.order
+    order.user_id = current_user.id
+    order.save!
   end
 
   def create_guest_user
