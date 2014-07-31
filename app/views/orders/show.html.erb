@@ -4,7 +4,9 @@
   <hr>
 
   <h5>Order subtotal: <%= number_to_currency(@order.subtotal) %></h5>
-  <h5>Delivery charge: <%= number_to_currency(@order.delivery_charge) %></h5>
+  <% if @order.neighborhood_id.present? %>
+    <h5>Delivery charge: <%= number_to_currency(@order.delivery_charge) %></h5>
+  <% end %>
   <div>
   <% unless @order.neighborhood_id.present? %>
     <p> For delivery, please select from one of our available locations: </p>
