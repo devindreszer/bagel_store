@@ -11,4 +11,9 @@ class Order < ActiveRecord::Base
     subtotal
   end
 
+  def add_item_price(item_price)
+    self.price += item_price
+    self.save
+  end
+
 end

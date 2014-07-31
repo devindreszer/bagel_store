@@ -8,12 +8,14 @@
               <a href="/menu_items?is_bulk={{menu_item.is_bulk}}">Back to Menu</a>
             </p>
           </div>
+        {{#if order_id}}
           <div class="small-6 columns">
             <p class="text-right">
               <a href="/orders/{{order_id}}">Current Order</a>
             </p>
           </div>
         </div>
+        {{/if}}
 
         {{#if id}}
         <form id="edit-order-item-form" action="/order_item/{{id}}" method="patch" data-id="{{id}}">
