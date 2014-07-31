@@ -1,0 +1,4 @@
+<%= form_for @order do |f| %>
+      <%= f.select(:neighborhood_id, options_from_collection_for_select(@neighborhoods, :id, :neighborhood_name), include_blank: true, prompt: "Select a delivery neighborhood") %>
+        <%= f.submit "Choose delivery location", class: "small button radius" %>
+      <% end %>

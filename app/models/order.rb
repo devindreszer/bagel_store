@@ -11,4 +11,8 @@ class Order < ActiveRecord::Base
     subtotal
   end
 
+  def delivery_charge
+    self.neighborhood.delivery_charge
+  end
+
 end
