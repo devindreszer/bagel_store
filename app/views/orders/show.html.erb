@@ -2,9 +2,8 @@
 <% unless @order.is_purchased %>
   <%= render partial: "order_item", collection: @order.order_items %>
   <hr>
-
   <h5>Order subtotal: <%= number_to_currency(@order.subtotal) %></h5>
-  <h5>Delivery charge: <%= number_to_currency(@order.delivery_charge) %></h5>
+    <h5>Delivery charge: <%= number_to_currency(@order.delivery_charge) %></h5>
   <div>
   <% unless @order.neighborhood_id.present? %>
     <p> For delivery, please select from one of our available locations: </p>

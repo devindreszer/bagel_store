@@ -1,11 +1,27 @@
 <h3>Confirm Order</h3>
 <hr>
-<p>Quantity:</p>
-<p>Item:</p>
-<p>Price:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quantity:</th>
+      <th>Item:</th>
+      <th>Price:</th>
+    </tr>
+  </thead>
+<% @order.order_items.each do |order_item| %>
+  <tbody>
+    <tr>
+      <td><%= order_item.quantity %></td>
+      <td><%= order_item.menu_item.name %></td>
+      <td><%= number_to_currency(order_item.price) %></td>
+    </tr>
+  </tbody>
+<% end %>
+  </table>
 <hr>
-<p>Subtotal: </p>
-<p>Delivery charge: </p>
+<p>Subtotal: <%= number_to_currency(@order.subtotal) %> </p>
+<p>Delivery charge: <%= number_to_currency(@order.delivery_charge) %></p>
 <hr>
 
 <%= form_tag charges_path(order_id: params[:order_id]) do %>

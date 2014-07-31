@@ -17,7 +17,11 @@ class Order < ActiveRecord::Base
   end
 
   def delivery_charge
-    self.neighborhood.delivery_charge
+    charge = 0
+    if self.neighborhood_id.present?
+      charge = self.neighborhood.delivery_charge
+    end
+    charge
   end
 
   def total_price
