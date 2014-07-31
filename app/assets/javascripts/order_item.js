@@ -1,7 +1,7 @@
 var OrderItem = {
   initialize: function() {
     $('.menu-item').find('a').click(this.getNewItem.bind(this));
-    $('#edit-order-item').click(this.getExistingItem.bind(this));
+    $('.edit-order-item').click(this.getExistingItem.bind(this));
     $('body').on('submit', '#new-order-item-form', this.submitNewForm.bind(this));
     $('body').on('submit', '#edit-order-item-form', this.submitEditForm.bind(this));
   },
@@ -58,7 +58,7 @@ var OrderItem = {
       dataType: 'json',
       data: paramsHash,
     })
-    .done(this.showOrder.bind(this));
+    .done(this.showNewOrder.bind(this));
   },
 
   submitEditForm: function(event) {
@@ -88,11 +88,15 @@ var OrderItem = {
       dataType: 'json',
       data: paramsHash,
     })
-    .done(this.showOrder(orderID).bind(this));
+    .done(this.showEditedOrder(orderID).bind(this));
   },
 
-  showOrder: function(orderID) {
+  showEditedOrder: function(orderID) {
     window.location.replace(Routes.order_path(orderID));
+  },
+
+  showNewOrder: function(orderItem) {
+    window.location.replace(Routes.order_path(orderItem.order_id));
   }
 
 };
