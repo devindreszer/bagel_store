@@ -50,7 +50,7 @@
         {{/with}}
 
             <label>Quantity
-              <select name="quantity">
+              <select name="quantity" id="quantity">
                 {{#if quantity}}
                   <option value="{{quantity}}" selected>--Current Quantity: {{quantity}}--</option>
                 {{/if}}
@@ -73,22 +73,33 @@
           <div class="large-5 small-12 columns">
           <label>Choose a Bagel
               <select name="option_id">
-                <option value="">--Select a Different Bagel--</option>
                 {{#each selections}}
                   {{#if option.ingredient.is_bagel}}
                     {{#if is_selected}}
-                      <option value="{{option.id}}" selected>{{option.ingredient.name}}
+                      <option value="{{option.id}}"
                         {{#if option.is_addon}}
-                          {{#if option.ingredient.price}}
-                            {{option.ingredient.price}}
+                          {{#if option.ingredient.price_string}}
+                            data-price="{{option.ingredient.price}}"
+                          {{/if}}
+                        {{/if}}
+                         selected>{{option.ingredient.name}}
+                        {{#if option.is_addon}}
+                          {{#if option.ingredient.price_string}}
+                            {{option.ingredient.price_string}}
                           {{/if}}
                         {{/if}}
                       </option>
                     {{else}}
-                      <option value="{{option.id}}">{{option.ingredient.name}}
+                      <option value="{{option.id}}"
                         {{#if option.is_addon}}
-                          {{#if option.ingredient.price}}
-                            {{option.ingredient.price}}
+                          {{#if option.ingredient.price_string}}
+                            data-price="{{option.ingredient.price}}"
+                          {{/if}}
+                        {{/if}}
+                         >{{option.ingredient.name}}
+                        {{#if option.is_addon}}
+                          {{#if option.ingredient.price_string}}
+                            {{option.ingredient.price_string}}
                           {{/if}}
                         {{/if}}
                       </option>
@@ -106,18 +117,30 @@
                 {{#each selections}}
                   {{#if option.ingredient.is_cc}}
                     {{#if is_selected}}
-                      <option value="{{option.id}}" selected>{{option.ingredient.name}}
+                      <option value="{{option.id}}"
                         {{#if option.is_addon}}
-                          {{#if option.ingredient.price}}
-                            {{option.ingredient.price}}
+                          {{#if option.ingredient.price_string}}
+                            data-price="{{option.ingredient.price}}"
+                          {{/if}}
+                        {{/if}}
+                         selected>{{option.ingredient.name}}
+                        {{#if option.is_addon}}
+                          {{#if option.ingredient.price_string}}
+                            {{option.ingredient.price_string}}
                           {{/if}}
                         {{/if}}
                       </option>
                     {{else}}
-                      <option value="{{option.id}}">{{option.ingredient.name}}
+                      <option value="{{option.id}}"
                         {{#if option.is_addon}}
-                          {{#if option.ingredient.price}}
-                            {{option.ingredient.price}}
+                          {{#if option.ingredient.price_string}}
+                            data-price="{{option.ingredient.price}}"
+                          {{/if}}
+                        {{/if}}
+                         >{{option.ingredient.name}}
+                        {{#if option.is_addon}}
+                          {{#if option.ingredient.price_string}}
+                            {{option.ingredient.price_string}}
                           {{/if}}
                         {{/if}}
                       </option>
@@ -142,9 +165,9 @@
                 <div class="row">
                   <div class="small-1  columns">
                     {{#if is_selected}}
-                      <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}" checked>
+                      <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}" data-price="0" checked>
                     {{else}}
-                      <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}">
+                      <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}" data-price="0">
                     {{/if}}
                   </div>
                   <label for="{{option.id}}">
@@ -175,9 +198,9 @@
                   <div class="row">
                     <div class="small-1  columns">
                       {{#if is_selected}}
-                        <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}" checked>
+                        <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}" data-price="{{option.ingredient.price}}" checked>
                       {{else}}
-                        <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}">
+                        <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}" data-price="{{option.ingredient.price}}">
                       {{/if}}
                     </div>
                     <label for="{{option.id}}">
@@ -185,7 +208,7 @@
                       {{option.ingredient.name}}
                     </div>
                     <div class="small-4 columns text-right">
-                      {{option.ingredient.price}}
+                      {{option.ingredient.price_string}}
                     </div>
                     </label>
                   </div>
@@ -202,9 +225,9 @@
                   <div class="row">
                     <div class="small-1  columns">
                       {{#if is_selected}}
-                        <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}" checked>
+                        <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}" data-price="{{option.ingredient.price}}" checked>
                       {{else}}
-                        <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}">
+                        <input type="checkbox" name="option_id" value="{{option.id}}" id="{{option.id}}" data-price="{{option.ingredient.price}}">
                       {{/if}}
                     </div>
                     <label for="{{option.id}}">
@@ -212,7 +235,7 @@
                       {{option.ingredient.name}}
                     </div>
                     <div class="small-4 columns text-right">
-                      {{option.ingredient.price}}
+                      {{option.ingredient.price_string}}
                     </div>
                     </label>
                   </div>
@@ -225,7 +248,7 @@
         {{/unless}}
         {{/if}}
         <hr>
-        <p>Total Price: {{total_price}}</p>
+        <p id="total-price" data-price="{{total_price}}">Total Price: {{total_price_string}}</p>
 
         {{#if id}}
           <button id="submit-order-item" type="submit" class="small button radius">Update Order</button>
