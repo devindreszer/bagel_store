@@ -30,7 +30,7 @@ var OrderItem = {
       paramsHash = {};
 
     formData.forEach(function(data){
-      if(data.name === "option_id") {
+      if(data.name === "option_id" && data.value !== "") {
         selectionsAttr.push({ "option_id": data.value, "is_selected": true });
       } else {
         orderItemAttr[data.name] = data.value;

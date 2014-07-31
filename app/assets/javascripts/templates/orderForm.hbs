@@ -51,16 +51,46 @@
         {{#if selections}}
 
         <hr>
-
-        <h3 class="text-center">Customize</h3>
+        <h3 class="text-center">Included Ingredients</h3>
         <div class="row">
-          <div class="large-4 medium-6 small-12 columns">
+          <div class="large-5 small-12 columns">
+            <label>Remove Ingredients</label>
+            {{#each selections}}
+              {{#with option}}
+                {{#unless is_addon}}
+                  <div class="row">
+                    <div class="small-1  columns">
+                      <input type="checkbox" name="option_id" value="{{id}}" id="{{id}}" checked>
+                    </div>
+                    <label for="{{id}}">
+                    <div class="small-6 columns">
+                      {{ingredient.name}}
+                    </div>
+                    <div class="small-4 columns text-right">
+                      Included
+                    </div>
+                    </label>
+                  </div>
+                {{/unless}}
+              {{/with}}
+            {{/each}}
+          </div>
+        </div>
+
+        <hr>
+
+        <h3 class="text-center">Additional Ingredients</h3>
+        <div class="row">
+          <div class="large-5 small-12 columns">
           <label>Choose a Bagel
               <select name="option_id">
+                <option value="">--Select a Different Bagel--</option>
                 {{#each selections}}
                   {{#with option}}
+                    {{#if is_addon}}
                     {{#if ingredient.is_bagel}}
                       <option value="{{id}}">{{ingredient.name}} {{#if ingredient.price}} {{ingredient.price}}{{/if}}</option>
+                    {{/if}}
                     {{/if}}
                   {{/with}}
                 {{/each}}
@@ -69,10 +99,13 @@
 
             <label>Choose a Cream Cheese
               <select name="option_id">
+                <option value="">--Select a Cream Cheese--</option>
                 {{#each selections}}
                   {{#with option}}
+                    {{#if is_addon}}
                     {{#if ingredient.is_cc}}
                       <option value="{{id}}">{{ingredient.name}} {{#if ingredient.price}} {{ingredient.price}}{{/if}}</option>
+                    {{/if}}
                     {{/if}}
                   {{/with}}
                 {{/each}}
@@ -88,6 +121,7 @@
             <label>Choose your Meat</label>
             {{#each selections}}
               {{#with option}}
+                {{#if is_addon}}
                 {{#if ingredient.is_meat}}
                   <div class="row">
                     <div class="small-1  columns">
@@ -103,6 +137,7 @@
                     </label>
                   </div>
                 {{/if}}
+                {{/if}}
               {{/with}}
             {{/each}}
           </div>
@@ -111,6 +146,7 @@
             <label>Choose your Toppings</label>
             {{#each selections}}
               {{#with option}}
+                {{#if is_addon}}
                 {{#if ingredient.is_topping}}
                   <div class="row">
                     <div class="small-1  columns">
@@ -125,6 +161,7 @@
                     </div>
                     </label>
                   </div>
+                {{/if}}
                 {{/if}}
               {{/with}}
             {{/each}}
