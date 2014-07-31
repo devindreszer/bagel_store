@@ -32,8 +32,6 @@ var OrderItem = {
   },
 
   showForm: function(order_item_data) {
-    var dataID = order_item_data.menu_item_id;
-    var $dataID = $("[data-id=" + dataID + "]");
     $('body').append(HandlebarsTemplates.orderForm(order_item_data));
   },
 
