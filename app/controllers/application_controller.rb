@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
       order_item.user_id = current_user.id
       order_item.save!
     end
-    order = guest_user.order
+    order = order_items.order
     order.user_id = current_user.id
     order.save!
   end
