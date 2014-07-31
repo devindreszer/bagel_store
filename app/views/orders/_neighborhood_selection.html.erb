@@ -1,4 +1,9 @@
-<%= form_for @order do |f| %>
+<div class="row">
+  <div class="medium-5 small-12 columns">
+    <%= form_for @order do |f| %>
       <%= f.select(:neighborhood_id, options_from_collection_for_select(@neighborhoods, :id, :neighborhood_name), include_blank: true, prompt: "Select a delivery neighborhood") %>
-        <%= f.submit "Choose delivery location", class: "small button radius" %>
-      <% end %>
+
+      <%= f.submit "Choose delivery location", class: "small button radius" %>
+    <% end %>
+  </div>
+</div>
