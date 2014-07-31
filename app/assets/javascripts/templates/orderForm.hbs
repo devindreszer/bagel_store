@@ -5,7 +5,7 @@
         <div class="row">
           <div class="small-6 columns">
             <p class="text-left">
-              <a href="/menu_items?is_bulk={{menu_item.is_bulk}}">Back to Menu</a>
+              <a href="/menu_items?is_bulk={{menu_item.is_bulk_string}}">Back to Menu</a>
             </p>
           </div>
         {{#if order_id}}
@@ -97,6 +97,8 @@
                 {{/each}}
               </select>
             </label>
+
+        {{#unless menu_item.is_bulk}}
 
             <label>Choose a Cream Cheese
               <select name="option_id">
@@ -220,6 +222,7 @@
           </div>
         </div>
 
+        {{/unless}}
         {{/if}}
         <hr>
         <p>Total Price: {{total_price}}</p>
