@@ -32,7 +32,8 @@ var OrderItem = {
   },
 
   showForm: function(order_item_data) {
-    $('body').append(HandlebarsTemplates.orderForm(order_item_data));
+    $(HandlebarsTemplates.orderForm(order_item_data)).hide().appendTo('body').fadeIn();
+    $('html, body').animate({ scrollTop: 0 }, 0);
   },
 
   submitNewForm: function(event) {
