@@ -1,5 +1,5 @@
 class OrderItemsController < ApplicationController
-  before_action :set_order, only: [:create]
+  before_action :set_order, only: [:new, :create]
 
   def default_serializer_options
     { root: false }
@@ -10,6 +10,7 @@ class OrderItemsController < ApplicationController
   def new
     @order_item = OrderItem.new
     @order_item.menu_item_id = params[:menu_item_id]
+    @order_item.price = @order_item.menu_item.price
     @order_item.options = Option.where(menu_item_id: @order_item.menu_item_id)
 
     @order_item.selections.each do |selection|
@@ -25,6 +26,16 @@ class OrderItemsController < ApplicationController
   def create
     @order_item = @order.order_items.new(order_item_params)
     @order_item.user_id = current_or_guest_user.id
+
+    #set unselected
+    menu_item_option_ids = @order_item.menu_item.options.map(&:id)
+    selection_option_ids = @order_item.selections.map(&:option_id)
+
+    menu_item_option_ids.each do |menu_item_option_id|
+      unless selection_option_ids.include?(menu_item_option_id)
+        @order_item.selections.new(option_id: menu_item_option_id, is_selected: false)
+      end
+    end
 
     # calculate price
     @order_item.price = @order_item.menu_item.price
