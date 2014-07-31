@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_order
 
+  def after_sign_in_path_for(resource_or_scope)
+    logging_in
+    guest_user.destroy
+  end
+
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
     if current_user
@@ -48,9 +53,11 @@ class ApplicationController < ActionController::Base
       order_item.user_id = current_user.id
       order_item.save!
     end
-    order = order_items.order
-    order.user_id = current_user.id
-    order.save!
+    guest_orders = guest_user.orders.all
+    guest_orders.each do |order|
+      order.user_id = current_user.id
+      order.save!
+    end
   end
 
   def create_guest_user
