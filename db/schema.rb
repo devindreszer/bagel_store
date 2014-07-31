@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730170645) do
+ActiveRecord::Schema.define(version: 20140730173637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,11 @@ ActiveRecord::Schema.define(version: 20140730170645) do
     t.boolean  "is_bulk"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "neighborhoods", force: true do |t|
+    t.string  "neighborhood_name"
+    t.decimal "delivery_charge",   precision: 8, scale: 2
   end
 
   create_table "options", force: true do |t|
@@ -61,12 +66,14 @@ ActiveRecord::Schema.define(version: 20140730170645) do
 
   create_table "orders", force: true do |t|
     t.integer  "user_id"
-    t.decimal  "price",        precision: 8, scale: 2
+    t.decimal  "price",           precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_purchased"
+    t.integer  "neighborhood_id"
   end
 
+  add_index "orders", ["neighborhood_id"], name: "index_orders_on_neighborhood_id", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "selections", force: true do |t|

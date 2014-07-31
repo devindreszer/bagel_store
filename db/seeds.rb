@@ -1,6 +1,7 @@
 MenuItem.delete_all
 Ingredient.delete_all
 User.delete_all
+Neighborhood.delete_all
 
 devin = User.create!(
   username: 'devin',
@@ -405,6 +406,34 @@ sandwiches.each do |sandwich|
   end
 end
 
+# neighborhood reference: http://www.cityofboston.gov/neighborhoods/
+
+Neighborhood.create!(neighborhood_name: 'Allston', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'Back Bay', delivery_charge: 6)
+Neighborhood.create!(neighborhood_name: 'Bay Village', delivery_charge: 6)
+Neighborhood.create!(neighborhood_name: 'Beacon Hill', delivery_charge: 6)
+Neighborhood.create!(neighborhood_name: 'Brighton', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'Brookline', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'Cambridge', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'Charlestown', delivery_charge: 6)
+Neighborhood.create!(neighborhood_name: 'Chinatown/Leather District', delivery_charge: 6)
+Neighborhood.create!(neighborhood_name: 'Dorchester', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'Downtown', delivery_charge: 6)
+Neighborhood.create!(neighborhood_name: 'Fenway Kenmore', delivery_charge: 6)
+Neighborhood.create!(neighborhood_name: 'Hyde Park', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'Jamaica Plain', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'Mattapan', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'Mid Dorchester', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'Mission Hill', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'North End', delivery_charge: 6)
+Neighborhood.create!(neighborhood_name: 'Roslindale', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'Roxbury', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'Somerville', delivery_charge: 11)
+Neighborhood.create!(neighborhood_name: 'South Boston', delivery_charge: 6)
+Neighborhood.create!(neighborhood_name: 'South End', delivery_charge: 6)
+Neighborhood.create!(neighborhood_name: 'West End', delivery_charge: 6)
+Neighborhood.create!(neighborhood_name: 'West Roxbury', delivery_charge: 11)
+
 boxes = [sm_bagel_box_single_var, lg_bagel_box_single_var]
 boxes.each do |box|
   flavors = [sesame_bagel, poppy_bagel, onion_bagel, wheat_bagel, raisin_bagel]
@@ -412,3 +441,4 @@ boxes.each do |box|
     box.options.create!(ingredient_id: flavor.id, is_addon: false)
   end
 end
+

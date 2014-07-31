@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :menu_items, only: [:index]
   resources :order_items, except: [:index, :show]
-  resources :orders, only: [:show, :index]
+  resources :orders, only: [:show, :index, :update]
   resources :charges, only: [:new, :create]
+
 end
