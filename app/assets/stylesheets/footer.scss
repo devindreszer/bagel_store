@@ -1,3 +1,29 @@
 #footer {
-  padding: 2rem 0;
+  padding-top: 2rem;
+  background: #404040;
+
+  .map_img img {
+    background-image: image-url("http://s3.amazonaws.com/bagelstoreassets/images/melcher_map.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 10rem;
+  }
+
+  .footer-item {
+    padding-top: 2rem;
+    min-height: 10rem;
+
+    p {
+      color: white;
+    }
+
+    a {
+      color: white;
+    }
+
+    a:hover {
+      color: #FFDB9B
+    }
+  }
 }

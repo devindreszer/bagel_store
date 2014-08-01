@@ -10,6 +10,7 @@
 </ul>
 
 <% if @menu_items.present? && @menu_items.first.is_bulk == false %>
+<hr>
   <div class="menu-item" data-id='1'>
     <%= link_to new_order_item_path(menu_item_id: 1) do %>
       <div id="build-your-own">
@@ -20,4 +21,5 @@
     <% end %>
   </div>
 <% end %>
+<hr>
 
