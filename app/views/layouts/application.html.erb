@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Bob's Bagels" %></title>
+    <link rel="shorcut icon" type="image/png" href="http://s3.amazonaws.com/bagelstoreassets/images/bobs_logo.png">
 
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag "vendor/modernizr" %>
