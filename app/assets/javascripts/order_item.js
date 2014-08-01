@@ -3,6 +3,7 @@ var OrderItem = {
     $('.menu-item').find('a').click(this.getNewItem.bind(this));
     $('.edit-order-item').click(this.getExistingItem.bind(this));
     $('body').on('change', '#new-order-item-form', this.updatePrice.bind(this));
+    $('body').on('change', '#edit-order-item-form', this.updatePrice.bind(this));
     $('body').on('submit', '#new-order-item-form', this.submitNewForm.bind(this));
     $('body').on('submit', '#edit-order-item-form', this.submitEditForm.bind(this));
   },

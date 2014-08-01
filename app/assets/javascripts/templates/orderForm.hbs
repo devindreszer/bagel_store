@@ -81,6 +81,8 @@
                           {{#if option.ingredient.price_string}}
                             data-price="{{option.ingredient.price}}"
                           {{/if}}
+                        {{else}}
+                          data-price="0"
                         {{/if}}
                          selected>{{option.ingredient.name}}
                         {{#if option.is_addon}}
@@ -122,6 +124,8 @@
                           {{#if option.ingredient.price_string}}
                             data-price="{{option.ingredient.price}}"
                           {{/if}}
+                        {{else}}
+                          data-price="0"
                         {{/if}}
                          selected>{{option.ingredient.name}}
                         {{#if option.is_addon}}
