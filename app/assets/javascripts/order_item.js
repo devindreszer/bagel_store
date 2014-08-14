@@ -100,8 +100,8 @@ var OrderItem = {
         orderItemAttr[data.name] = data.value;
       }
     });
-    orderItemAttr["selections_attributes"] = selectionsAttr;
-    paramsHash["order_item"] = orderItemAttr;
+    orderItemAttr.selections_attributes = selectionsAttr;
+    paramsHash.order_item = orderItemAttr;
 
     event.preventDefault();
     $.ajax({
@@ -130,8 +130,8 @@ var OrderItem = {
         orderItemAttr[data.name] = data.value;
       }
     });
-    orderItemAttr["selections_attributes"] = selectionsAttr;
-    paramsHash["order_item"] = orderItemAttr;
+    orderItemAttr.selections_attributes = selectionsAttr;
+    paramsHash.order_item = orderItemAttr;
 
     event.preventDefault();
     $.ajax({
