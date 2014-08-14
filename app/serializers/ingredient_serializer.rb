@@ -11,37 +11,22 @@ class IngredientSerializer < ActiveModel::Serializer
   end
 
   def is_bagel
-    if object.category == "bagel" || object.category == "variety bagel"
-      result = "true"
-    end
-    result
+    object.category == "bagel" || object.category == "variety bagel"
   end
 
   def is_topping
-    if object.category == "topping"
-      result = "true"
-    end
-    result
+    object.category == "topping"
   end
 
   def is_cc
-    if object.category == "basic cc" || object.category == "deluxe cc"
-      result = "true"
-    end
-    result
+    object.category == "basic cc" || object.category == "deluxe cc"
   end
 
   def is_cheese
-    if object.category == "cheese"
-      result = "true"
-    end
-    result
+    object.category == "cheese"
   end
 
   def is_meat
-    if object.category == "meat"
-      result = "true"
-    end
-    result
+    object.category == "meat"
   end
 end
